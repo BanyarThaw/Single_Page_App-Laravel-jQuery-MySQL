@@ -1,0 +1,122 @@
+body {
+    background-color: #d9d7d4;
+}
+.login_form_wrap {
+    padding-top: 3%;
+}
+.login_header {
+    text-align: center;
+}
+.login_form {
+    margin: auto;
+    width: 400px;
+    overflow: hidden;
+    border-radius: 15px 15px 15px 15px;
+    background-color: white;
+    box-shadow: 10px 10px  20px gray,-10px -10px 20px gray;
+}
+.header_login {
+    border-radius: 15px 15px 0px 0px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #89561f;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+.header_login > h3 {
+    color: black;
+}
+.main_login {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    border-radius: 0px 0px 15px 15px;
+    border: 2px solid #89561f;
+}
+.main_login > form > label {
+    line-height: 2em;
+    font-size: 1.2em;
+}
+.login_submit_form {
+    padding-left: 10%;
+}
+.login_email,.login_password {
+    width: 300px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+#login_email {
+    width: 300px;
+}
+.login_submit {
+    width: 307px;
+    height: 45px;
+    color: black;
+    font-size: 1.3em;
+    background-color: #89561f;
+    border: 1px solid #89561f;
+    border: #89561f;
+    border-radius: 5px;
+}
+
+/*changes to responsive design start here*/
+.login_form_for_small_screens {
+	margin: auto;
+	margin-top: 3%;
+	width: 270px;
+	overflow: hidden;
+	border-radius: 15px 15px 15px 15px;
+	background-color: white;
+	box-shadow: 10px 10px  20px gray,-10px -10px 20px gray;
+	display: none;
+}
+.login_email_small_screens,.login_password_small_screens {
+	width: 205px;
+	height: 30px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+.login_submit_small_screens {
+	width: 207px;
+	height: 45px;
+	color: black;
+	font-size: 1.3em;
+	background-color: #89561f;
+	border: 1px solid #89561f;
+	border: #89561f;
+	border-radius: 5px;
+}
+.login_submit_form_small_screens {
+    padding-left: 10%;
+}
+.main_login_small_screens {
+    padding-top: 15px;
+    padding-bottom: 35px;
+    border-radius: 0px 0px 15px 15px;
+    border: 2px solid #89561f;
+}
+.header_login_small_screens {
+    border-radius: 15px 15px 0px 0px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #89561f;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+.header_login_small_screens > h4 {
+    color: black;
+}
+@media (min-width: 1px) and (max-width: 449px) {
+	.login_form {
+		display: none;
+	}
+	.login_form_for_small_screens {
+		display: block;
+	}
+	#login_email {
+		width: 205px;
+		height: 30px;
+		border: 1px solid black;
+		border-radius: 5px;
+	}
+}

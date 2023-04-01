@@ -1,0 +1,1786 @@
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: -2; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: scroll;  /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+	background-color: #fefefe;
+	z-index: -2;
+	margin-top: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 150px;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+}
+
+/* The Close Button */
+.close {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.word_break {
+	word-break: break-all;
+}
+
+/* message dialog box */
+.modal_2 {
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 50px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto;  /* Enable scroll if needed */
+	display: none; 
+}
+
+/* Modal Content */
+.modal-content_2 {
+	display: block;
+	background-color: black;
+	margin: auto;
+	text-align: center;
+	word-break: break-all;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: white;
+	border-radius: 5px 5px 5px 5px;
+	width: 70%;
+}
+
+/* common (reception,guests,users) */
+.date_format_mobile {
+	width:95px;
+	border-bottom: 1px solid black;
+	text-align:center;
+}
+.name_mobile {
+	margin-bottom:-15px;
+}
+.mobile_title {
+	display: none;
+}
+.mobile_title_room {
+	display: none;
+}
+.border_top {
+	border-bottom: 1px solid gray;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+.border_top_2 {
+	margin-top:25px;
+}
+.main_header_icon {
+	margin-top: -10px;
+}
+.header_icon {
+	margin-top: -20px;
+}
+
+.header_icon_for_mobile_screens {
+	display: none;
+}
+
+html body {
+	background-color: #adadab;
+}
+.highlight {
+	background-color: none;
+	font-size: 1.4em;
+}
+#search_results {
+	max-height: 500px;
+	background-color: white;
+	border-right: 1px solid grey;
+	border-left: 1px solid grey;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+.search_result_detail {
+	border-bottom: 1px solid grey;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+}
+.wrap {
+    margin-top: 25px;
+}
+.header {
+    width: 100%;
+    height: 80px;
+    background-color: #89561f;
+}
+.header > h3 {
+    position: absolute;
+    padding-top: 10px;
+    padding-left: 40px;
+    color: black;
+}
+.wrap_logout {
+    position: relative;
+}
+.logout {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+}
+.power {
+	width: 30px;
+}
+.logos {
+    position: relative;
+}
+.wrap_menu {
+    background-color: #89561f;
+    border-radius: 15px 15px 15px 15px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+}
+.menu {
+    width: 100%;
+    color: #b0b618;
+    background-color: #23395d;
+    border-radius: 15px 15px 15px 15px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+#p-link {
+    margin-top: 25px;
+}
+.p-link {
+    text-align: center;
+}
+.arrow_wrap {
+    overflow:hidden;
+    padding-top: 10px;
+    margin-bottom: -5px;
+    display: none;
+}
+.arrow_wrap_mobile {
+	width: 0px;
+	height: 0px;
+	position: relative;
+	border-left: 13px solid transparent;
+	border-right: 13px solid transparent;
+	border-bottom: 18px solid black;
+	margin-left: 15px;
+}
+.arrow_wrap_mobile::before {
+	content: "";
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-bottom: 13px solid #d9d7d4;
+	left: -12px;
+	top: 5px;
+}
+.alive {
+    display: block;
+}
+.dead {
+    display: none;
+}
+.null {
+	display: none;
+}
+.arrow_one {
+    border-right: 20px solid #d9d7d4;
+    border-top: 20px solid transparent;
+    content: "";
+    float: left;
+}
+.arrow_two {
+    border-left: 20px solid #d9d7d4;
+    border-top: 20px solid transparent;
+    content: "";
+    float: left;
+}
+.menus {
+    float: left;
+    margin-left: 10px;
+    margin-right: 35px;
+}
+.menus > a {
+    text-decoration: none;
+}
+.menus_anchor {
+    color: black;
+}
+.menus_anchor:visited {
+    color:  black;
+}
+.menus_anchor:hover {
+    color: black;
+}
+.reception,.guest,.user,.room {
+	position: relative;
+	height: 30px;
+	width: 115px;
+}
+.reception_hover,.guest_hover,.user_hover,.room_hover {
+	position: absolute;
+}
+.sub_menu {
+    padding-top: 30px;
+    padding-left: -10px;
+    padding-right: -10px;
+    background-color: #d9d7d4;
+}
+.sub_menus {
+    height: 50px;
+    text-align: center;
+    color: black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid black;
+}
+.sub_menus_active {
+    color: black;
+    border-bottom: 2px solid black;
+}
+.sub_menu_anchor_active {
+    font-size: 1.2em;
+    color: black;
+}
+.sub_menu_anchor_active:hover,.sub_menu_anchor:hover {
+	font-size:1.3em;
+}
+.sub_menu_anchor {
+    color: #585353;
+}
+.sub_menus > a:hover {
+    color: black;
+}
+.sub_menus > a:focus {
+    color: black;
+    text-decoration: none;
+}
+.pointer {
+    display: none;
+}
+.active {
+    display: block;
+}
+.main_body {
+    width:100%;
+    background-color: white;
+    border-radius: 15px;
+    background-color: #d9d7d4;
+}
+.user_input_data {
+    margin-bottom: 30px;
+}
+.main_body > h3 {
+    padding-top: 25px;
+    color: black;
+    text-align: center;
+}
+.detail_info {
+    color: black;
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 15px 15px 15px 15px;
+}
+.detail_info_header {
+    padding-left: 0px;
+    padding-bottom: 0px;
+    border-bottom: 1px solid black;
+    margin-bottom: 30px;
+}
+.detail_info_header > h4 {
+    text-align: center;
+}
+#guest_detail_info {
+    padding-left: 20px;
+}
+.guest_search_form,.reception_search_form,.user_search_form {
+    position: absolute;
+    right: 30px;
+    margin-top: 5px;
+}
+.guest_detail_anchor {
+    color: black;
+}
+.guest_detail_anchor:hover {
+    color: black;
+}
+.input_data {
+    margin-bottom: 30px;
+}
+input[type=text],input[type=number] {
+    width: 220px;
+}
+.submit_button {
+    position: absolute;
+    right: 50px
+}
+.submit_button > button {
+    width: 100px;
+}
+.date {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.name {
+    border-bottom: 1px solid black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.anchor_check_out,.anchor_edit,.room_anchor_check_out {
+    position: absolute;
+    right: 10px;
+}
+.anchor_check_out:hover,.room_anchor_check_out:hover {
+    color: blue;
+}
+#guest_input_data {
+    margin-bottom: 30px;
+}
+.reception_create_select {
+    width: 165px;
+    height: 25px;
+}
+#menus_anchor {
+    text-decoration: none;
+}
+#menus_anchor:hover {
+	font-size: 1.3em;
+}
+.arrow_wrap_header {
+	overflow:hidden;
+	padding-top: 10px;
+	position: relative;
+	margin: auto;
+	width: 50%;
+	text-align: center;
+	margin: 0;
+}
+.arrow_one_header {
+    border-right: 20px solid black;
+    border-top: 20px solid transparent;
+    content: "";
+    float: left;
+}
+.arrow_two_header {
+    border-left: 20px solid black;
+    border-top: 20px solid transparent;
+    content: "";
+    float: left;
+}
+.message_box {
+    padding-top: 10px;
+    margin-top: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+    width: auto;
+    height: 65px;
+    background-color: black;
+    text-align: center;
+    border-radius: 15px 15px 15px 15px;
+    color: white;
+}
+.user_info {
+    display: none;
+    position: absolute;
+    top: 26px;
+    right: -40px;
+    z-index: 2;
+}
+.show {
+	float:left;
+	cursor:pointer;
+}
+.show:hover {
+	font-size: 1.3em;
+}
+.power:hover {
+	font-size: 1.3em;
+}
+.detail_info_header_mobile {
+	padding-left: 0px;
+	padding-bottom: 0px;
+	border-bottom: 1px solid black;
+	margin-bottom: 30px;
+	display: none;
+}
+.detail_info_header_mobile > h4 {
+	text-align: center;
+}
+.header_for_small_screens {
+	display: none;
+}
+.header_for_small_screens_create {
+	width:40px;
+	border-bottom: 1px solid black;
+	padding-bottom: 10px;
+	text-align: center;
+}
+.user_list_mobile {
+	display: none;
+}
+.user_list_mobile_header {
+	text-align: center;
+	margin-bottom: 10px;
+}
+.guest_list_mobile_header {
+	text-align: center;
+	margin-bottom: 10px;
+}
+.header_for_small_screens_list {
+	width:60px;
+	border-bottom: 1px solid black;
+	padding-bottom: 10px;
+}
+.header_for_small_screens_guest {
+	width:60px;
+	border-bottom: 1px solid black;
+	padding-bottom: 10px;
+}
+.user_list_mobile_detail {
+	border-bottom: 1px solid gray;
+}
+.user_detail_anchor {
+    color: black;
+}
+.user_detail_anchor:hover {
+    color: black;
+}
+.menu_icon {
+	padding-left: 30px;
+	display: none;
+}
+.menu_icon > img {
+    cursor: pointer;
+}
+.wrap_sub_menu_mobile {
+	margin-left: 20px;
+	margin-top: -7px;
+	display: none;
+}
+.sub_menu_mobile {
+	padding-top: 10px;
+	margin-top: 0px;
+	width: 200px;
+	background-color: #d9d7d4;
+	border: 1px solid black;
+	margin-top: -1px;
+}
+.sub_menus_mobile {
+	width: 180px;
+	margin-bottom: 15px;
+	margin-left: 10px;
+	text-align:center;
+	padding-bottom:10px;
+	border-bottom: 1px solid black;
+}
+.sub_menus_mobile > a {
+	color: black;
+	text-decoration: none;
+}
+.sub_menus_mobile > a:hover {
+	color: black;
+}	
+.menus_mobile {
+	float: left;
+	margin-left: 5px;
+	margin-right: 15px;
+	display: none;
+}
+.arrow_one_mobile {
+    border-right: 15px solid #d9d7d4;
+    border-top: 15px solid transparent;
+    content: "";
+    float: left;
+}
+.arrow_two_mobile {
+    border-left: 15px solid #d9d7d4;
+    border-top: 15px solid transparent;
+    content: "";
+    float: left;
+}
+.guest_input_data_mobile_show {
+	margin-top: -40px;
+	display: none;
+}
+.p-link_for_guest {
+	display: none;
+}
+.guest_input_data_header {
+	border-bottom: 1px solid black;
+	width: 95px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+.guest_input_data {
+    margin-bottom: 30px;
+}
+.detail_anchor {
+	color: black;
+}
+.detail_anchor:hover {
+	color: black;	
+}
+
+/* reception */
+.reception_detail_info_header {
+	padding-left: 0px;
+	padding-bottom: 0px;
+	border-bottom: 1px solid black;
+	margin-bottom: 30px;
+}
+.reception_detail_info_header > h4 {
+	text-align: center;
+}
+.reception_detail_info_header2 {
+	padding-left: 0px;
+	padding-bottom: 0px;
+	border-bottom: 1px solid black;
+	margin-bottom: 30px;
+	text-align: center;
+	display: none;
+}
+.reception_header_for_small_screens {
+	display: none;
+}
+.reception_header_for_small_screens_create {
+	width:70px;
+	text-align: center;
+	border-bottom: 1px solid black;
+	padding-bottom: 10px;
+}
+.reception_detail_info_header_mobile {
+	padding-left: 0px;
+	padding-bottom: 0px;
+	border-bottom: 1px solid black;
+	margin-bottom: 30px;
+	text-align: center;
+	display: none;
+}
+.reception_user_list_mobile_header {
+	margin-bottom: 10px;
+}
+.detail_info_header2 {
+	padding-left: 0px;
+	padding-bottom: 0px;
+	border-bottom: 1px solid black;
+	margin-bottom: 30px;
+	text-align: center;
+	display: none;
+}
+.reception_submit_button {
+	position: absolute;
+	right: 60px;
+}
+.reception_submit_button > button {
+	width: 100px;
+}
+.reception_input_data {
+	padding-left: 45px;
+}
+#reception_submit_button {
+	position: relative;
+	margin-bottom: 30px;
+}
+#wrap_input_data {
+	margin: 0;
+	padding: 0;
+}
+#input_data {
+	padding:0;
+	margin:0;
+}
+#input_data > input[type=text],input[type=number],select {
+	width: 200px;
+}
+#input_data2 {
+	padding:0;
+	margin-right: 22px;
+}
+#input_data3 {
+	margin-right:5px;
+	padding:0;
+}
+#input_data4 {
+	width: 200px;
+}
+.input_data_input {
+	width: 200px;
+}
+.reception_user_list_mobile_detail {
+	border-bottom: 1px solid gray;
+	padding-bottom: 35px;
+}
+.reception_header_for_small_screens_list {
+	width:60px;
+	border-bottom: 1px solid black;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+}
+#user_input_data_form {
+	display: none;
+}
+
+/* users */
+#user_user_input_data_form {
+	padding-left: 80px;
+}
+.sub_menu_create_page {
+	margin-left: 35px;
+	padding-top: 30px;
+	background-color: #d9d7d4;
+	display: none;
+}
+#user_user_input_data_detail_2 {
+	width:350px;
+}
+#user_input_data_detail {
+	margin-bottom: 30px;
+}
+#pass_again_mobile {
+	display: none;
+}
+#user_user_submit_button {
+	position: relative;
+	margin-bottom: 30px;
+}
+.user_user_submit_button {
+	position: absolute;
+	right: 125px;
+}
+.user_user_submit_button > button {
+	width: 100px;
+}
+#user_user_submit_button_mobile {
+	margin-top: -30px;
+	display: none;
+}
+#current_user_detail_anchor {
+	color: red;
+}
+#current_user_detail_anchor:hover {
+	color: red;
+}
+.user_header_for_small_screens_edit {
+	width:40px;
+	border-bottom: 1px solid black;
+	padding-bottom: 10px;
+}
+.user_header_for_small_screens_create {
+	width:60px;
+	border-bottom: 1px solid black;
+	padding-bottom: 10px;
+	text-align: center;
+}
+.user_header_for_small_screens {
+	display: none;
+}
+#user_name_password {
+	margin-bottom: 20px;
+}
+.user_input_data_mobile {
+	display: none;
+}
+.user_edit {
+	position: absolute;
+	right: 50px;
+	margin-top: 8px
+}
+.user_edit > a {
+	color: black;
+}
+.user_edit > a:hover {
+	color: black;
+}
+.user_edit > a > button {
+	width: 100px;
+}
+.user_edit_parent_div {
+	position: relative;
+}
+.delete_user_button {
+	position: absolute;
+	right: 10px;
+}
+.edit_user_button {
+	position: absolute;
+	right: 35px;
+}
+
+/* rooms */
+.room_input_data_form {
+	margin-left: 35px;
+}
+#popup_input_rooms {
+	width: 185px;
+}
+.edit_room_button {
+	position: absolute;
+	right: 20px;
+}
+.room_anchor {
+	color: black;
+}
+.room_anchor:hover {
+	color: black;
+}
+.room_detail_info_header {
+	padding-left: 0px;
+	padding-bottom: 0px;
+	border-bottom: 1px solid black;
+	margin-bottom: 30px;
+}
+.room_detail_info_header > h4 {
+	text-align: center;
+}
+.room_detail_info_header_mobile {
+	padding-left: 0px;
+	padding-bottom: 0px;
+	border-bottom: 1px solid black;
+	margin-bottom: 30px;
+	display: none;
+	width: 80px;
+}
+.room_detail_info_header_mobile > h4 {
+	text-align: center;
+}
+.room_list_mobile_detail {
+	border-bottom: 1px solid gray;
+	padding-bottom: 35px;
+}
+.room_name_mobile {
+	display: none;
+}
+#user_input_form {
+	margin-bottom: 25px;
+}
+.room_input_data > div > div > input[type=text],.room_input_data > div > div > input[type=number],.room_input_data > div > div > select {
+	width: 345px;
+}
+.room_input_data > div > div > select {
+	height: 25px;
+}
+.room_name_mobile {
+	display: none;
+}
+.room_number_mobile {
+	display: none;
+}
+.room_type_mobile {
+	display: none;
+}
+#room_submit_button {
+	position: relative;
+	margin-bottom: 30px;
+}
+.room_submit_button {
+	position: absolute;
+	right: 120px
+}
+.room_submit_button > button {
+	width: 100px;
+}
+#room_submit_button_mobile {
+	margin-top: 1px;
+	margin-left: 15px;
+	display: none;
+}
+.room_edit {
+	position: absolute;
+	right: 50px;
+	margin-top: 8px;
+}
+.room_edit > a > button {
+	width: 100px;
+}
+.room_info_detail_mobile {
+	margin-top: -70px;
+	display: none;
+}
+@media (min-width: 992px) and (max-width: 1199px)  {
+	/* common (guests,users) */
+	.user_list_mobile {
+		display: none;
+	}
+
+	/* reception */
+	.user_submit_button {
+		position: absolute;
+		right: 25px;
+	}
+	.input_data {
+		margin-left: 15px;
+	}
+	.detail_info_header2 {
+		display: block;
+	}
+	.reception_input_data {
+		display: none;
+	}
+	#input_data > input[type=text],input[type=number],select {
+		width: 20px;
+	}
+	#user_input_data_form {
+		display: block;
+	}
+	#user_input_data_detail {
+		margin-bottom: 30px;
+	}
+	#user_input_data_detail_2 {
+		width:350px;
+	}
+	#user_submit_button {
+		position: relative;
+		margin-bottom: 30px;
+	}
+  	#user_submit_button_mobile {
+		margin-top: -30px;
+		display: none;
+	}
+	#input_data4 {
+		margin-left: 68px;
+	}
+	.reception_detail_info_header {
+		display: none;
+	}
+	.reception_detail_info_header2 {
+		display: block;
+	}
+	.reception_detail_info_header_mobile {
+		display: block;
+	}
+
+	/* users */
+	#user_user_input_data_form {
+		padding-left: 10px;
+	}
+	#pass_again {  
+		display: none;
+	}
+	#pass_again_mobile { 
+		display: block;
+	}
+	.user_user_submit_button {
+		position: absolute;
+		right: 65px;
+	}
+
+	/* rooms */
+	.room_detail_info_header {
+		display: none;
+	}
+	.room_detail_info_header_mobile {
+		display: block;
+	}
+	#room_submit_button {
+		display: none;
+	}
+	#room_submit_button_mobile {
+		display: block;
+	}
+	.room_input_data > div > div > input[type=text],.room_input_data > div > div > input[type=number],.room_input_data > div > div > select {
+		width: 300px;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	/* common (guests,users,rooms) */
+	.detail_info_header {
+		display: none;
+	}
+	.menu_icon {
+		display: block;
+	}
+	.sub_menu {
+		display: none;
+	}
+
+	/* common (guests,users) */
+	.detail_info_header_mobile {
+		display: block;
+	}
+	.user_list_mobile {
+		display: none;
+	}
+
+	/* reception */
+	.reception_input_data {
+		display: none;
+	}
+	#user_input_data_form {
+		display: block;
+	}
+	#reception_submit_button {
+		display: none;
+	}
+	#user_input_data_detail {
+		margin-bottom: 30px;
+	}
+	#user_input_data_detail_2 {
+		width:350px;
+	}
+	#user_submit_button {
+		position: relative;
+		margin-bottom: 30px;
+	}
+	#user_submit_button_mobile {
+		margin-top: -30px;
+		margin-left: 15px;
+		display: block;
+	}
+	.user_submit_button {
+		display: none;
+	}
+	.input_data {
+		margin-left: 15px;
+	}
+	.reception_detail_info_header {
+		display: none;
+	}
+	.reception_header_for_small_screens {
+		display: block;
+	}
+	.reception_header_for_small_screens_create {
+		margin-left: 30px;
+	}
+	.reception_detail_info_header_mobile {
+		display: block;
+	}
+
+	/* users */
+	#user_user_input_data_form {
+		padding-left: 55px;
+	}
+	.sub_menu_create_page {
+		display: block;
+	}
+	#user_user_input_data_detail_2 {
+		width: 240px;
+	}
+	#user_user_submit_button {
+		display: none;
+	}
+	.user_user_submit_button {
+		display: none;
+	}
+	#user_user_submit_button_mobile {
+		display: block;
+		margin-top: 5px;
+		margin-left: 15px;
+	}
+	.user_edit {
+		right: 20px;
+	}
+
+	/* rooms */
+	.room_detail_info_header {
+		display: none;
+	 }
+	.room_detail_info_header_mobile {
+		display: block;
+	}
+	#room_submit_button {
+		display: none;
+	}
+	#room_submit_button_mobile {
+		display: block;
+	}
+}
+@media(min-width: 641px) and (max-width: 767px) {
+	/* common (reception,guests,users,rooms) */
+	.menu_icon {
+		display: block;
+	}
+	.sub_menu {
+		display: none;
+	}
+	.menus {
+		display: none;
+	}
+	.menus_mobile {
+		display: block;
+	}
+	.header_icon_for_larger_screens {
+		display: none;
+	}
+	.header_icon_for_mobile_screens {
+		display: block;
+	}
+
+	/* common (guests,users,rooms) */
+	.detail_info_header {
+		display: none;
+	}
+
+	/* common (guests,users) */
+	.detail_info_header_mobile {
+		display: block;
+	}
+
+	/* common (guests,users) */
+	.user_list_mobile {
+		display: none;
+	}
+
+	/* reception */
+	.reception_input_data {
+		display: none;
+	}
+	#user_input_data_form {
+		display: block;
+	}
+	#reception_submit_button {
+		display: none;
+	}
+	#user_input_data_detail {
+		margin-bottom: 30px;
+	}
+	#user_input_data_detail_2 {
+		width:350px;
+	}
+	#user_submit_button {
+		position: relative;
+		margin-bottom: 30px;
+	}
+	#user_submit_button_mobile {
+		margin-top: -30px;
+		margin-left: 15px;
+		display: block;
+	}
+	.user_submit_button {
+		display: none;
+	}
+	.input_data {
+		margin-left: 15px;
+	}
+	.reception_detail_info_header {
+		display: none;
+	}
+	.reception_header_for_small_screens {
+		display: block;
+	}
+	.reception_header_for_small_screens_create {
+		margin-left: 30px;
+	}
+	.reception_detail_info_header_mobile {
+		display: block;
+	}
+
+	/* users */
+	#user_user_input_data_form {
+		padding-left: 10px;
+		display: block;
+	}
+	#user_user_input_data_detail_2 {
+		width: 240px;
+	}
+	.user_user_submit_button {
+		display: none;
+	}
+	#user_user_submit_button_mobile {
+		display: block;
+		margin-left: 15px;
+	}
+	.user_edit {
+		right: 20px;
+	}
+
+	/* rooms */
+	.room_detail_info_header {
+		display: none;
+	}
+	.room_detail_info_header_mobile {
+		display: block;
+	}
+	.room_info_detail {
+		display: none;
+	}
+	.room_info_detail_mobile {
+		display: block;
+	}
+	.room_edit {
+		top: 10px;
+		right: 10px;
+	}
+	#room_submit_button {
+		display: none;
+	}
+	#room_submit_button_mobile {
+		display: block;
+	}
+}
+@media (min-width: 486px) and (max-width: 640px) {
+	/* common (reception,guests,users,rooms) */
+	.logout {
+		right: 10px;
+	}
+	.header > h3 {
+		padding-left: 15px;
+	}
+	.menu_icon {
+		display: block;
+	}
+	.sub_menu {
+		display: none;
+	}
+	.menus {
+		display: none;
+	}
+	.menus_mobile {
+		display: block;
+	}
+	.header_icon_for_larger_screens {
+		display: none;
+	}
+	.header_icon_for_mobile_screens {
+		display: block;
+	}
+
+	/* common (guests,users,rooms) */
+	.detail_info_header {
+		display: none;
+	}
+
+	/* common (guests,users) */
+	.detail_info_header_mobile {
+		display: block;
+	}
+
+	/* common (guests,users) */
+	.user_list_mobile {
+		display: none;
+	}
+
+	/* reception */
+	.reception_input_data {
+		display: none;
+	}
+	#user_input_data_form {
+		display: block;
+	}
+	#reception_submit_button {
+		display: none;
+	}
+	#user_input_data_detail {
+		margin-bottom: 30px;
+	}
+	#user_input_data_detail_2 {
+		width:250px;
+	}
+	#user_submit_button {
+		position: relative;
+		margin-bottom: 30px;
+	}
+	#user_submit_button_mobile {
+		margin-top: -30px;
+		margin-left: 15px;
+		display: block;
+	}
+	.user_submit_button {
+		display: none;
+	}
+	.input_data {
+		margin-left: 15px;
+	}
+	.reception_detail_info_header {
+		display: none;
+	}
+	.reception_header_for_small_screens {
+		display: block;
+	}
+	.reception_header_for_small_screens_create {
+		margin-left: 30px;
+	}
+	.reception_detail_info_header_mobile {
+		display: block;
+	}
+
+	/* users */
+	#user_user_input_data_form {
+		margin-left: -60px;
+		display: block;
+	}
+	#user_user_input_data_detail_2 {
+		width: 240px;
+	} 
+	.user_user_submit_button {
+		display: none;
+	}
+	#user_user_submit_button_mobile {
+		margin-left: 15px;
+		display: block;
+	}
+	.user_edit {
+		right: 20px;
+	}
+	.user_input_data_mobile {
+		padding-left: 50px;
+		display: block;
+	}
+	.user_input_data_show {
+		display: none;
+	}
+
+	/* rooms */
+	.room_input_data_form {
+		margin-left: 0px;
+	}
+	.room_detail_info_header {
+		display: none;
+	}	
+	.room_detail_info_header_mobile {
+		display: block;
+	}
+	.room_info_detail {
+		display: none;
+	}
+	.room_info_detail_mobile {
+		display: block;
+	}
+	.room_edit {
+		top: 10px;
+		right: 10px;
+	}
+	#room_submit_button {
+		display: none;
+	}
+	#room_submit_button_mobile {
+		display: block;
+	}
+	#user_input_form > div > input,#user_input_form > div > select {
+		width: 250px;
+	}
+}
+@media (min-width: 294px) and (max-width: 485px) {
+	/* common (reception,guests,users,rooms) */
+	.wrap_sub_menu_and_detail_info {
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+	.wrap {
+		margin-top: 10px;
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+	.logout {
+		right: 10px;
+	}
+	.user_list_mobile {
+		display: block;
+	}
+	.menu_icon {
+		padding-left: 10px;
+		display: block;
+	}
+	.sub_menu {
+		display: none;
+	}
+	.menus {
+		display: none;
+	}
+	.menus_mobile {
+		display: block;
+	}
+	.header > h3 {
+		display: none;
+	}
+	.sub_menus_mobile {
+		text-align: justify;
+	}
+	.header_icon_for_larger_screens {
+		display: none;
+	}
+	.header_icon_for_mobile_screens {
+		display: block;
+	}
+	.mobile_title {
+		display: block;
+		margin-top:50px;
+		border-bottom: 1px solid black;
+		width:60px;
+		text-align: center;
+	}
+	.mobile_title_room {
+		display: block;
+		margin-top:20px;
+		border-bottom: 1px solid black;
+		width:60px;
+		text-align: center;
+	}
+
+	/* common (reception,guests,users) */
+	.guest_input_data {
+		display: none;
+	}
+
+	/* common (guests,users,rooms) */
+	.detail_info_header {
+		display: none;
+	}
+
+	/* common (guests,users) */
+	.detail_info_header_mobile {
+		display: none;
+	}
+	.wrap_sub_menu_mobile {
+		margin-left: -8px;
+	}
+	.header_for_small_screens {
+		margin-left: -20px;
+		display: none;
+	}
+
+	/* common (users,rooms) */ 
+	#popup_input {
+		width: 200px;
+	}
+
+	/* reception */
+	.reception_input_data {
+		display: none;
+	}
+	#user_input_data_form {
+		margin-left: -50px;
+		display: block;
+	}
+	#reception_submit_button {
+		display: none;
+	}
+	#user_input_data_detail {
+		margin-bottom: 30px;
+	}
+	#user_input_data_detail_2 {
+		width: 200px;
+	}
+	#user_submit_button {
+		position: relative;
+		margin-bottom: 30px;
+	}
+	#user_submit_button_mobile {
+		margin-top: -30px;
+		margin-left: 15px;
+		display: block;
+	}
+	.user_submit_button {
+		display: none;
+	}
+	.input_data {
+		margin-left: 20px;
+	}
+	.guest_list_tablet_desktop {
+		display: none;
+	}
+	.user_search_form {
+		right: 10px;
+	}
+	.user_search_form > form > input {
+		width: 150px;
+	}
+	.reception_search_form {
+		right: 10px;
+	}
+	.reception_search_form > form > input {
+		width: 150px;
+	}
+	.reception_detail_info_header {
+		display: none;
+	}
+	.reception_header_for_small_screens {
+		display: block;
+	}
+	.reception_header_for_small_screens_create {
+		margin-left: -20px;
+	}
+	.reception_detail_info_header_mobile {
+		display: none;
+	}
+	#input_data4 {
+		width: 130px;
+		margin-left: -4px;
+	}
+
+	/* guests */
+	.guest_list {
+		display: none;
+	}
+	.guest_search_form > form > input {
+		width: 100px;
+	}
+	.p-link_for_guest {
+		display: block;
+	}
+	.guest_input_data_mobile_show {
+		display: block;
+	}
+	.guest_search_form {
+		right: 10px;
+	}
+	.guest_search_form > form > input {
+		width: 150px;
+	}
+
+	/* users */
+	#user_user_input_data_form {
+		display: block;
+		margin-left: -85px;
+	}
+	.user_user_submit_button {
+		display: none;
+	}
+	#user_user_submit_button_mobile {
+		display: block;
+		margin-left: 15px;
+	}
+	.user_list_table_desktop {
+		display: none;
+	}
+	.user_edit {
+		right: -5px;
+	}
+	.user_input_data_show {
+		display: none;
+	}
+	#user_user_input_data_detail_2 {
+		width: 180px;
+	}
+	.user_header_for_small_screens {
+		margin-left: -20px;
+		display: block;
+	}
+	.user_input_data_mobile {
+		display: block;
+	}
+
+	/* rooms */
+	.room_detail_info_header {
+		display: none;
+	}
+	.room_detail_info_header_mobile {
+		margin-bottom: -30px;
+		display: block;
+	}
+	.room_list,.roomtype_list {
+		display: none;
+	}
+	.room_name {
+		display: none;
+	}
+	.room_name_mobile {
+		display: block;
+		margin-left:20px;
+	}
+	.room_info_detail {
+		display: none;
+	}
+	#room_submit_button {
+		display: none;
+	}
+	#room_submit_button_mobile {
+		display: block;
+		margin-left: -25px;
+	}
+	#user_input_form > div > input,#user_input_form > div > select {
+		width: 200px;
+	}
+	.room_detail_info_header_mobile {
+		display: none;
+	}
+	.room_input_data {
+		margin-left: -40px;
+	}
+	.room_edit {
+		top: 10px;
+		right: 10px;
+	}
+	.room_info_detail_mobile {
+		margin-top: -45px;
+		display: block;
+	}
+	.room_input_data_form {
+		margin-left: -10px;
+	}
+}
+@media (min-width: 1px) and (max-width: 295px) {
+	/* common (reception,guests,users,rooms) */
+	.wrap_sub_menu_and_detail_info {
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+	.wrap {
+		margin-top: 10px;
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+	.logout {
+		right: 10px;
+	}
+	.user_list_mobile {
+		display: block;
+	}
+	.menu_icon {
+		padding-left: 10px;
+		display: block;
+	}
+	.wrap_sub_menu_mobile {
+		margin-left: -10px;
+	}
+	.menus {
+		display: none;
+	}
+	.header > h3 {
+		display: none;
+	}
+	.sub_menus_mobile {
+		text-align: justify;
+	}
+	.header_icon_for_larger_screens {
+		display: none;
+	}
+	.header_icon_for_mobile_screens {
+		display: block;
+	}
+	.mobile_title {
+		display: block;
+		margin-top:50px;
+		margin-bottom:20px;
+		border-bottom: 1px solid black;
+		width:60px;
+		text-align: center;
+	}
+	.mobile_title_room {
+		display: block;
+		margin-top:20px;
+		margin-bottom:20px;
+		border-bottom: 1px solid black;
+		width:60px;
+		text-align: center;
+	}
+
+	/* common (reception,guests) */
+	.sub_menu {
+		display: none;
+	}
+
+	/* common (guests,users,rooms) */
+	.detail_info_header {
+		display: none;
+	}
+
+	/* common (guests,users) */
+	.detail_info_header_mobile {
+		display: none;
+	}
+
+	/* common (guests,users,rooms) */
+	.menus_mobile {
+		display: block;
+	}
+
+	/* common (users,rooms) */
+	#popup_input {
+		width: 185px;
+	}
+
+	/* reception */
+	.reception_input_data {
+		display: none;
+	}
+	#user_input_data_form {
+		margin-left: -55px;
+		display: block;
+	}
+	#reception_submit_button {
+		display: none;
+	}
+	#user_input_data_detail {
+		margin-bottom: 30px;
+	}
+	#user_input_data_detail_2 {
+		width: 150px;
+	}
+	#user_submit_button {
+		position: relative;
+		margin-bottom: 30px;
+	}
+	#user_submit_button_mobile {
+		margin-top: -30px;
+		margin-left: 15px;
+		display: block;
+	}
+	.user_submit_button {
+		display: none;
+	}
+	.input_data {
+		margin-left: 20px;
+	}
+	.guest_list_tablet_desktop {
+		display: none;
+	}
+	#input_data4 {
+		width: 130px;
+		margin-left: -4px;
+	}
+	.reception_search_form {
+		right: 10px;
+	}
+	.reception_search_form > form > input {
+		width: 150px;
+	}
+	.reception_detail_info_header {
+		display: none;
+	}
+	.reception_header_for_small_screens {
+		display: block;
+	}
+	.reception_header_for_small_screens_create {
+		margin-left: -20px;
+	}
+	.reception_detail_info_header_mobile {
+		display: none;
+	}
+
+	/* guests */
+	.header_for_small_screens {
+		margin-left: -20px;
+		display: none;
+	}
+	.guest_list {
+		display: none;
+	}
+	.guest_search_form > form > input {
+		width: 100px;
+	}
+	.p-link_for_guest {
+		display: block;
+	}
+	.guest_input_data_mobile_show {
+		display: block;
+	}
+	.guest_input_data {
+		display: none;
+	}
+	.guest_search_form {
+		right: 10px;
+	}
+	.guest_search_form > form > input {
+		width: 150px;
+	}
+
+	/* users */
+	#user_user_input_data_form {
+		display: block;
+		margin-left: -85px;
+	}
+	.user_edit {
+		right: -10px;
+	}
+	.user_input_data {
+		display: block;
+	}
+	.user_input_data_mobile {
+		display: block;
+	}
+	.user_input_data_show {
+		display: none;
+	}
+	#user_user_input_data_detail_2 {
+		width: 150px;
+	}
+	.user_user_submit_button {
+		display: none;
+	}
+	#user_user_submit_button_mobile {
+		margin-left: 15px;
+		display: block;
+	}
+	.user_list_table_desktop {
+		display: none;
+	}
+	.user_header_for_small_screens {
+		margin-left: -20px;
+		display: block;
+	}
+	.user_search_form {
+		right: 10px;
+	}
+	.user_search_form > form > input {
+		width: 150px;
+	}
+
+	/* rooms */
+	.room_detail_info_header {
+		display: none;
+	}
+	.room_detail_info_header_mobile {
+		display: block;
+	}
+	.room_list,.roomtype_list {
+		display: none;
+	}
+	.room_name {
+		display: none;
+	}
+	.room_name_mobile {
+		display: block;
+		margin-left:20px;
+	}
+	.room_info_detail {
+		display: none;
+	}
+	#room_submit_button {
+		display: none;
+	}
+	#room_submit_button_mobile {
+		display: block;
+		margin-left: -25px;
+	}
+	#user_input_form > div > input,#user_input_form > div > select {
+		width: 150px;
+	}
+	.room_detail_info_header_mobile {
+		display: none;
+	}
+	.room_input_data {
+		margin-left: -40px;
+	}
+	.room_edit {
+		top: 30px;
+		right: 3px;
+	}
+	.room_info_detail_mobile {
+		margin-top: -30px;
+		display: block;
+	}
+	.room_input_data_form {
+		margin-left: -10px;
+	}
+}
