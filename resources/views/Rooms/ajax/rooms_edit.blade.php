@@ -3,7 +3,7 @@
     {{ csrf_field() }}
     <label>Room Name :</label>
     <br>
-    <input type="text" name="room_name" value="{{ $room->name }}" id="popup_input" required>
+    <input type="text" name="room_name" value="{{ $room->room_name }}" id="popup_input" required>
     <br><br>
     <label>Room Number :</label>
     <br>

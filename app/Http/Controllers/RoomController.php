@@ -115,14 +115,10 @@ class RoomController extends Controller
             'room_type'=>'required',
         ]);
 
-        $photo = "null";
-
         $room = new Room();
-
-        $room->name = request()->room_name;
+        $room->room_name = request()->room_name;
         $room->room_number = request()->room_number;
         $room->room_type = request()->room_type;
-        $room->room_photo = $photo;
         $room->save();
 
         return redirect('rooms')->with("info","New Room created!!!");
@@ -179,27 +175,14 @@ class RoomController extends Controller
             'room_type' => 'required',
         ]);
 
-        if(request()->room_photo) {
-            $photoName = date('YmdHis').".".request()->room_photo->getClientOriginalExtension();
-            request()->room_photo->move(public_path('photos'),$photoName);
-            $room = Room::find($id);
+        $room = Room::find($id);
+        
+        $room->room_name = request()->room_name;
+        $room->room_number = request()->room_number;
+        $room->room_type = request()->room_type;
 
-            $room->name = request()->room_name;
-            $room->room_number = request()->room_number;
-            $room->room_type = request()->room_type;
-            $room->room_photo = $photoName;
+        $room->save();
 
-            $room->save();
-        }
-        else {
-            $room = Room::find($id);
-            
-            $room->name = request()->room_name;
-            $room->room_number = request()->room_number;
-            $room->room_type = request()->room_type;
-
-            $room->save();
-        }
         return redirect('rooms')->with("info","Room updated!!!");
     }
 

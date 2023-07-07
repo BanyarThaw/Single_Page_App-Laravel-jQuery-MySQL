@@ -27,7 +27,7 @@
                   Name
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="room_name" value="{{ $rooms->name }}" required>
+                    <input type="text" name="room_name" value="{{ $rooms->room_name }}" required>
                 </div>
             </div>
         </div>

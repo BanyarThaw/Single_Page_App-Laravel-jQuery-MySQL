@@ -10,7 +10,7 @@ class RoomType extends Model
 {
     use HasFactory;
 
-    protected $table = "room_type";
+    protected $table = "room_types";
 
     public function rooms()
     {

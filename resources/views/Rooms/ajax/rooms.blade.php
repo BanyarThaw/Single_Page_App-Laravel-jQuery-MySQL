@@ -78,7 +78,7 @@
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-8 name">
                     <a href="/rooms/detail/{{ $room->id }}" class="room_anchor detail_anchor" id="myBtn">
-                        @php $words_limit = $words_count::words_limit($room->name); echo $words_limit; @endphp
+                        @php $words_limit = $words_count::words_limit($room->room_name); echo $words_limit; @endphp
                     </a>
                     <a href="/rooms/edit/{{ $room->id }}" class="detail_anchor edit_room_button">
                         <img src="{{asset('icons/pencil-square.svg')}}" alt="Bootstrap" width="20" height="20"></img>
@@ -93,7 +93,7 @@
 				<div class="reception_user_list_mobile_detail">
 					<h5 class="date_format_mobile">{{ $room->created_at->format('d.n.Y') }}</h5>
 					<a href="/rooms/detail/{{ $room->id }}" class="detail_anchor" id="myBtn">
-						<p class="name_mobile">@php $words_limit = $words_count::words_limit($room->name); echo $words_limit; @endphp</p>
+						<p class="name_mobile">@php $words_limit = $words_count::words_limit($room->room_name); echo $words_limit; @endphp</p>
 					</a>
 					<br>
 					<a href="/rooms/edit/{{ $room->id }}" class="detail_anchor edit_room_button">

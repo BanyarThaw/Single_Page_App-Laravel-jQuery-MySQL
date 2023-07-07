@@ -30,7 +30,7 @@
                     Room Name
                 </div>
                 <div class="col-md-8 col-sm-8 word_break">
-                    : {{ $rooms->name }}
+                    : {{ $rooms->room_name }}
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
     <div class="room_info_detail_mobile">
 		<br><br>
 		<h5 class="guest_input_data_header"><b>Room Name</b></h5>
-		<p class="word_break">{{ $rooms->name }}</p>
+		<p class="word_break">{{ $rooms->room_name }}</p>
 		<h5 class="guest_input_data_header"><b>Number</b></h5>
 		<p class="word_break">{{ $rooms->room_number }}</p>
 		<h5 class="guest_input_data_header"><b>Room Type</b></h5>
