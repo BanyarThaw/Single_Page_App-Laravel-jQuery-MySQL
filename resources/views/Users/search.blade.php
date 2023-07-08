@@ -40,10 +40,10 @@
                     </a>
                 @endif
                 <a href="/users/delete/{{ $user->id }}" class="anchor_check_out_2 delete_user">
-                    <img src="{{asset('icons/trash-fill.svg')}}" alt="Bootstrap" width="15" height="15"></img>
+                    <img src="{{asset('icons/trash-fill.png')}}" alt="Bootstrap" width="15" height="15"></img>
                 </a>
                 <a href="/users/edit/{{ $user->id }}" class="anchor_edit detail_anchor">
-                    <img src="{{asset('icons/pencil-square.svg')}}" alt="Bootstrap" width="15" height="15"></img>
+                    <img src="{{asset('icons/pencil-square.png')}}" alt="Bootstrap" width="15" height="15"></img>
                 </a>
             </div>
         @endforeach
@@ -64,10 +64,10 @@
                     </a>
                 @endif
                 <a href="/users/delete/{{ $user_2->id }}" class="anchor_check_out_2 delete_user">
-                    <img src="{{asset('icons/trash-fill.svg')}}" alt="Bootstrap" width="15" height="15"></img>
+                    <img src="{{asset('icons/trash-fill.png')}}" alt="Bootstrap" width="15" height="15"></img>
                 </a>
                 <a href="/users/edit/{{ $user_2->id }}" class="anchor_edit detail_anchor">
-                    <img src="{{asset('icons/pencil-square.svg')}}" alt="Bootstrap" width="15" height="15"></img>
+                    <img src="{{asset('icons/pencil-square.png')}}" alt="Bootstrap" width="15" height="15"></img>
                 </a>
             </div>
         @endforeach
@@ -89,10 +89,10 @@
 				@endif
 				<br>
 				<a href="/users/delete/{{ $user->id }}" class="delete_user delete_user_button">
-					<img src="{{asset('icons/trash-fill.svg')}}" alt="Bootstrap" width="20" height="20"></img>
+					<img src="{{asset('icons/trash-fill.png')}}" alt="Bootstrap" width="20" height="20"></img>
 				</a>
 				<a href="/users/edit/{{ $user->id }}" class="detail_anchor edit_user_button">
-					<img src="{{asset('icons/pencil-square.svg')}}" alt="Bootstrap" width="20" height="20"></img>
+					<img src="{{asset('icons/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img>
 				</a>
 			</div>
         @endforeach
@@ -115,10 +115,10 @@
 				@endif
 				<br>
 				<a href="/users/delete/{{ $user->id }}" class="delete_user delete_user_button">
-                    <img src="{{asset('icons/trash-fill.svg')}}" alt="Bootstrap" width="20" height="20"></img>
+                    <img src="{{asset('icons/trash-fill.png')}}" alt="Bootstrap" width="20" height="20"></img>
 				</a>
 				<a href="/users/edit/{{ $user->id }}" class="detail_anchor edit_user_button">
-                    <img src="{{asset('icons/pencil-square.svg')}}" alt="Bootstrap" width="20" height="20"></img>
+                    <img src="{{asset('icons/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img>
 				</a>
 			</div>
         @endforeach

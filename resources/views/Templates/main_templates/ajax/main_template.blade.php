@@ -26,12 +26,12 @@
                 <div class="logout">
                     <div class="show">
                         <a href="/users/detail/{{Auth::user()->id}}" class="detail_anchor" id="myBtn">
-                            <img src="{{asset('icons/person-circle.svg')}}" alt="Bootstrap" width="32" height="32"></img>
+                            <img src="{{asset('icons/person-circle.png')}}" alt="Bootstrap" width="32" height="32"></img>
                         </a>
                     </div>
                     &nbsp;&nbsp;
                     <a href="/users/logout" title="logout" class="logout_button">
-						<img src="{{asset('icons/power.svg')}}" alt="Bootstrap" width="32" height="32"></img>
+						<img src="{{asset('icons/power.png')}}" alt="Bootstrap" width="32" height="32"></img>
                     </a>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <div class="reception">
 					<div class="reception_hover" id="header">
 						<a href="/reception" class="menus_anchor" id="menus_anchor">
-							<img src="{{asset('icons/shop.svg')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+							<img src="{{asset('icons/shop.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 							Reception
 						</a>
 					</div>
@@ -56,7 +56,7 @@
                 <div class="guest">
 					<div class="guest_hover" id="header">
 						<a href="/guests" class="menus_anchor" id="menus_anchor">
-							<img src="{{asset('icons/people-fill.svg')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+							<img src="{{asset('icons/people-fill.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 							Guest
 						</a>
 					</div>
@@ -70,7 +70,7 @@
                 <div class="user">
 					<div class="user_hover" id="header">
 						<a href="/users" class="menus_anchor" id="menus_anchor">
-							<img src="{{asset('icons/person-circle.svg')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+							<img src="{{asset('icons/person-circle.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 							Users
 						</a>
 					</div>
@@ -84,7 +84,7 @@
                 <div class="room">
 					<div class="room_hover" id="header">
 						<a href="/rooms" class="menus_anchor" id="menus_anchor">
-							<img src="{{asset('icons/door-closed.svg')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+							<img src="{{asset('icons/door-closed.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 							Rooms
 						</a>
 					</div>
@@ -97,7 +97,7 @@
             <!-- normal mobile view,mobile landscape view,tablet view (header menu category) -->
             <div class="menus_mobile" id="header">
                 <a href="/reception" class="menus_anchor" id="menus_anchor">
-                    <img src="{{asset('icons/shop.svg')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+                    <img src="{{asset('icons/shop.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
                 </a>
 				<div class="arrow_wrap alive" id="reception_mobile"> 
 					<div class="arrow_one_mobile"></div>
@@ -106,7 +106,7 @@
             </div>
             <div class="menus_mobile" id="header">
 				<a href="/guests" class="menus_anchor" id="menus_anchor">
-					<img src="{{asset('icons/people-fill.svg')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+					<img src="{{asset('icons/people-fill.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 				</a>
 				<div class="arrow_wrap" id="guests_mobile"> 
 					<div class="arrow_one_mobile"></div>
@@ -115,7 +115,7 @@
             </div>
             <div class="menus_mobile" id="header">
 				<a href="/users" class="menus_anchor" id="menus_anchor">
-					<img src="{{asset('icons/person-circle.svg')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+					<img src="{{asset('icons/person-circle.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 				</a>
 				<div class="arrow_wrap" id="users_mobile"> 
 					<div class="arrow_one_mobile"></div>
@@ -124,7 +124,7 @@
             </div>
             <div class="menus_mobile" id="header">
 				<a href="/rooms" class="menus_anchor" id="menus_anchor">
-					<img src="{{asset('icons/door-closed.svg')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+					<img src="{{asset('icons/door-closed.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 				</a>
 				<div class="arrow_wrap" id="rooms_mobile"> 
 					<div class="arrow_one_mobile"></div>
@@ -134,17 +134,17 @@
             <div class="main_body col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<!-- header icon and title -->
                 <h3 class="header_icon_for_larger_screens">
-                    <img src="{{asset('icons/shop.svg')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
+                    <img src="{{asset('icons/shop.png')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
                     Reception
                 </h3>
 				<!-- header icon (for mobile view) -->
                 <h3 class="header_icon_for_mobile_screens">
-                    <img src="{{asset('icons/shop.svg')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
+                    <img src="{{asset('icons/shop.png')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
                 </h3>
 				<!-- menu icon for menu pop up box (for mobile view) --> 
                 <div class="menu_icon">
                     <a href="/reception/menu_icon">
-			            <img src="{{asset('icons/card-list.svg')}}" alt="Bootstrap" width="32" height="32"></img>
+			            <img src="{{asset('icons/card-list.png')}}" alt="Bootstrap" width="32" height="32"></img>
             		</a>
                 </div>
 				<!-- menu pop up box (for mobile view) -->

@@ -1,16 +1,16 @@
 <!-- header icon and title -->
 <h3 class="header_icon_for_larger_screens">
-    <img src="{{asset('icons/person-circle.svg')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
+    <img src="{{asset('icons/person-circle.png')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
     Users
 </h3>
 <!-- header icon (for mobile view) -->
 <h3 class="header_icon_for_mobile_screens">
-    <img src="{{asset('icons/person-circle.svg')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
+    <img src="{{asset('icons/person-circle.png')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
 </h3>
 <!-- menu icon for menu pop up box (for mobile view) --> 
 <div class="menu_icon">
     <a href="/reception/menu_icon">
-        <img src="{{asset('icons/card-list.svg')}}" alt="Bootstrap" width="32" height="32"></img>
+        <img src="{{asset('icons/card-list.png')}}" alt="Bootstrap" width="32" height="32"></img>
     </a>
 </div>
 <!-- menu pop up box (for mobile view) -->
@@ -77,10 +77,10 @@
                         </a>
                     @endif
                     <a href="/users/delete/{{ $user->id }}" class="anchor_check_out_2 delete_user">
-                        <img src="{{asset('icons/trash-fill.svg')}}" alt="Bootstrap" width="15" height="15"></img>
+                        <img src="{{asset('icons/trash-fill.png')}}" alt="Bootstrap" width="15" height="15"></img>
                     </a>
                     <a href="/users/edit/{{ $user->id }}" class="anchor_edit detail_anchor">
-                        <img src="{{asset('icons/pencil-square.svg')}}" alt="Bootstrap" width="15" height="15"></img>
+                        <img src="{{asset('icons/pencil-square.png')}}" alt="Bootstrap" width="15" height="15"></img>
                     </a>
                 </div>
             @endforeach
@@ -102,10 +102,10 @@
                     @endif
                     <br>
                     <a href="/users/delete/{{ $user->id }}" class="delete_user delete_user_button">
-                        <img src="{{asset('icons/trash-fill.svg')}}" alt="Bootstrap" width="20" height="20"></img>
+                        <img src="{{asset('icons/trash-fill.png')}}" alt="Bootstrap" width="20" height="20"></img>
                     </a>
                     <a href="/users/edit/{{ $user->id }}" class="detail_anchor edit_user_button">
-                        <img src="{{asset('icons/pencil-square.svg')}}" alt="Bootstrap" width="20" height="20"></img>
+                        <img src="{{asset('icons/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img>
                     </a>
                 </div>
                 <br>

@@ -7,17 +7,17 @@
     @endif
 	<!-- header icon and title -->
     <h3 class="header_icon_for_larger_screens">
-        <img src="{{asset('icons/shop.svg')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
+        <img src="{{asset('icons/shop.png')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
         Reception
     </h3>
 	<!-- header icon (for mobile view) -->
     <h3 class="header_icon_for_mobile_screens">
-        <img src="{{asset('icons/shop.svg')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
+        <img src="{{asset('icons/shop.png')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
     </h3>
 	<!-- menu icon for menu pop up box (for mobile view) --> 
     <div class="menu_icon">
 		<a href="/reception/menu_icon">
-			<img src="{{asset('icons/card-list.svg')}}" alt="Bootstrap" width="32" height="32"></img>
+			<img src="{{asset('icons/card-list.png')}}" alt="Bootstrap" width="32" height="32"></img>
 		</a>
     </div>
 	<!-- menu pop up box (for mobile view) -->

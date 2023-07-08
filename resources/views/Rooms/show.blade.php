@@ -16,7 +16,7 @@
 		<div class="room_edit">
 			<a href="/rooms/edit/{{ $rooms->id }}" class="edit_form detail_anchor" id="myBtn">
 				<button>
-					<img src="{{asset('icons/pencil-square.svg')}}" alt="Bootstrap" width="20" height="20"></img>
+					<img src="{{asset('icons/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img>
 				</button>
 			</a>
 		</div>
