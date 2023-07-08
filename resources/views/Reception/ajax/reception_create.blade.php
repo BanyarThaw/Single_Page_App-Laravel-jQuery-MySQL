@@ -96,7 +96,7 @@
                         <select name="room" id="input_data4" class="room reception_create_select">
                             <option value="">Choose</option>
                             @foreach($rooms as $room)
-                                <option value="{{$room->id}}">{{$room->name}}</option>
+                                <option value="{{$room->id}}">{{$room->room_name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -193,7 +193,7 @@
                     <select name="room" id="input_data4" class="room reception_create_select">
                         <option value="">Choose</option>
                         @foreach($rooms as $room)
-                            <option value="{{$room->id}}">{{$room->name}}</option>
+                            <option value="{{$room->id}}">{{$room->room_name}}</option>
                         @endforeach
                     </select>
                 </div>

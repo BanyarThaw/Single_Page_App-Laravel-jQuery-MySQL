@@ -84,14 +84,11 @@ class ajaxRoomController extends Controller
                 return $this->ajax_rooms_create($request);
             }
 
-            $photo = "null";
-
             $room = new Room();
     
-            $room->name = request()->room_name;
+            $room->room_name = request()->room_name;
             $room->room_number = request()->room_number;
             $room->room_type = request()->room_type;
-            $room->room_photo = $photo;
             $room->save();
 
             return $this->ajax_rooms_list($request);
@@ -131,7 +128,7 @@ class ajaxRoomController extends Controller
             else {
                 $room = Room::find($id);
 
-                $room->name = request()->room_name;
+                $room->room_name = request()->room_name;
                 $room->room_number = request()->room_number;
                 $room->room_type = request()->room_type;
                 $room->save();
