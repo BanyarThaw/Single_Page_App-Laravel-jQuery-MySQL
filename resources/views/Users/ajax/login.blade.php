@@ -8,7 +8,7 @@
 <div class="login_form_wrap">
     <div class="login_form">
         <div class="header_login">
-            <img src="{{asset('icons/globe.png')}}" alt="Bootstrap" width="64" height="64"></img>
+            <img src="{{asset('icon/globe.png')}}" alt="Bootstrap" width="64" height="64"></img>
             <h3>Web Application</h3>
         </div>
         <div class="main_login">
@@ -30,7 +30,7 @@
 <!-- login form (mobile view) -->
 <div class="login_form_for_small_screens">
     <div class="header_login_small_screens">
-    <img src="{{asset('icons/globe.png')}}" alt="Bootstrap" width="45" height="45"></img>
+    <img src="{{asset('icon/globe.png')}}" alt="Bootstrap" width="45" height="45"></img>
         <h4>Web Application</h4>
     </div>
     <div class="main_login_small_screens">

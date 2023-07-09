@@ -30,7 +30,7 @@
             <div class="col-md-9 col-sm-9 col-xs-8 name">
                 @php $words_limit = $words_count::words_limit($room_type->name); echo $words_limit; @endphp
                 <a href="/roomtypes/edit/{{ $room_type->id }}" class="room_anchor_check_out detail_anchor" id="myBtn">
-                    <img src="{{asset('icons/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img>
+                    <img src="{{asset('icon/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img>
                 </a>
             </div>
         @endforeach
@@ -44,7 +44,7 @@
                 <p class="name_mobile"> @php $words_limit = $words_count::words_limit($room_type->name); echo $words_limit; @endphp</p>                    
                 <br>
                 <a href="/roomtypes/edit/{{ $room_type->id }}" class="detail_anchor edit_room_button">
-                    <img src="{{asset('icons/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img>
+                    <img src="{{asset('icon/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img>
                 </a>
             </div>
             <br>

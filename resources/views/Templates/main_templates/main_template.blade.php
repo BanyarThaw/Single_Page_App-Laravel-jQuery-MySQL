@@ -30,12 +30,12 @@
 						<div class="logout">
 							<div class="show">
 								<a href="/users/detail/{{Auth::user()->id}}" class="detail_anchor" id="myBtn">
-									<img src="{{asset('icons/person-circle.png')}}" alt="Bootstrap" width="32" height="32"></img>
+									<img src="{{asset('icon/person-circle.png')}}" alt="Bootstrap" width="32" height="32"></img>
 								</a>
 							</div>
 							&nbsp;&nbsp;
 							<a href="/users/logout" title="logout" class="logout_button">
-								<img src="{{asset('icons/power.png')}}" alt="Bootstrap" width="32" height="32"></img>
+								<img src="{{asset('icon/power.png')}}" alt="Bootstrap" width="32" height="32"></img>
 							</a>
 						</div>
 					</div>
@@ -46,7 +46,7 @@
 						<div class="reception">
 							<div class="reception_hover" id="header">
 								<a href="/reception" class="menus_anchor" id="menus_anchor">
-									<img src="{{asset('icons/shop.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+									<img src="{{asset('icon/shop.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 									Reception
 								</a>
 							</div>
@@ -60,7 +60,7 @@
 						<div class="guest">
 							<div class="guest_hover" id="header">
 								<a href="/guests" class="menus_anchor" id="menus_anchor">
-									<img src="{{asset('icons/people-fill.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+									<img src="{{asset('icon/people-fill.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 									Guest
 								</a>
 							</div>
@@ -74,7 +74,7 @@
 						<div class="user">
 							<div class="user_hover" id="header">
 								<a href="/users" class="menus_anchor" id="menus_anchor">
-									<img src="{{asset('icons/person-circle.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+									<img src="{{asset('icon/person-circle.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 									Users
 								</a>
 							</div>
@@ -88,7 +88,7 @@
 						<div class="room">
 							<div class="room_hover" id="header">
 								<a href="/rooms" class="menus_anchor" id="menus_anchor">
-									<img src="{{asset('icons/door-closed.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+									<img src="{{asset('icon/door-closed.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 									Rooms
 								</a>
 							</div>
@@ -101,7 +101,7 @@
 					<!-- normal mobile view,mobile landscape view,tablet view (header menu category) -->
 					<div class="menus_mobile" id="header">
 						<a href="/reception" class="menus_anchor" id="menus_anchor">
-							<img src="{{asset('icons/shop.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+							<img src="{{asset('icon/shop.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 						</a>
 						<div class="arrow_wrap {{ $main_title_reception }}" id="reception_mobile"> 
 							<div class="arrow_one_mobile"></div>
@@ -110,7 +110,7 @@
 					</div>
 					<div class="menus_mobile" id="header">
 						<a href="/guests" class="menus_anchor" id="menus_anchor">
-							<img src="{{asset('icons/people-fill.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+							<img src="{{asset('icon/people-fill.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 						</a>
 						<div class="arrow_wrap {{ $main_title_guest }}" id="guests_mobile"> 
 							<div class="arrow_one_mobile"></div>
@@ -119,7 +119,7 @@
 					</div>
 					<div class="menus_mobile" id="header">
 						<a href="/users" class="menus_anchor" id="menus_anchor">
-							<img src="{{asset('icons/person-circle.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+							<img src="{{asset('icon/person-circle.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 						</a>
 						<div class="arrow_wrap {{ $main_title_user }}" id="users_mobile"> 
 							<div class="arrow_one_mobile"></div>
@@ -128,7 +128,7 @@
 					</div>
 					<div class="menus_mobile" id="header">
 						<a href="/rooms" class="menus_anchor" id="menus_anchor">
-							<img src="{{asset('icons/door-closed.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
+							<img src="{{asset('icon/door-closed.png')}}" alt="Bootstrap" width="20" height="20" class="main_header_icon"></img>
 						</a>
 						<div class="arrow_wrap {{ $main_title_room }}" id="rooms_mobile"> 
 							<div class="arrow_one_mobile"></div>

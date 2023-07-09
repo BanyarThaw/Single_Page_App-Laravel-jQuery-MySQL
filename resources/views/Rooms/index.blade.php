@@ -32,7 +32,7 @@
                     @php $words_limit = $words_count::words_limit($room->room_name); echo $words_limit; @endphp
                 </a>
                 <a href="/rooms/edit/{{ $room->id }}" class="detail_anchor edit_room_button">
-                    <img src="{{asset('icons/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img>
+                    <img src="{{asset('icon/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img>
                 </a>
             </div>
         @endforeach
@@ -50,7 +50,7 @@
 				</a>
 				<br>
 				<a href="/rooms/edit/{{ $room->id }}" class="detail_anchor edit_room_button">
-					<img src="{{asset('icons/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img>
+					<img src="{{asset('icon/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img>
 				</a>
 			</div>
 			<br>
