@@ -134,10 +134,10 @@ class ReceptionController extends Controller
 
             $search = request()->search;
 
-            $guests = Guest::where('name','LIKE','%'.$search.'%')->where('status','1')->orderBy('created_at','desc')->get();
+            $guests = Guest::where('name','LIKE','%'.$search.'%')->where('status','1')->orderBy('created_at','desc')->paginate(10);
             $rooms = null;
 
-            return $this->return_path("Reception.check_in_search",$rooms,$guests);
+            return $this->return_path("Reception.check_in",$rooms,$guests);
         }
         return view('Users.login');
     }
@@ -166,10 +166,10 @@ class ReceptionController extends Controller
 
             $search = request()->search;
 
-            $guests = Guest::where('name','LIKE','%'.$search.'%')->where('status','0')->orderBy('created_at','desc')->get();
+            $guests = Guest::where('name','LIKE','%'.$search.'%')->where('status','0')->orderBy('created_at','desc')->paginate(10);
             $rooms = null;
 
-            return $this->return_path("Reception.check_out_search",$rooms,$guests);
+            return $this->return_path("Reception.check_out",$rooms,$guests);
         }
         return view('Users.login');
     }

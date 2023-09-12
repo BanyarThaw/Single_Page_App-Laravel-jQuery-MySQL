@@ -1,5 +1,9 @@
 @extends('Templates.sub_templates.rooms')
 
+@section('rooms')
+    alive
+@endsection
+
 @section('sub_content')
 	<!-- each respective category title name -->
     <div class="col-md-12">

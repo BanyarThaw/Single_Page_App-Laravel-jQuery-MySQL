@@ -1,5 +1,9 @@
 @extends('Templates.sub_templates.reception')
 
+@section('reception')
+    alive
+@endsection
+
 @section('sub_content')
     <div>
         <div class="sub_menus_mobile" id="body">

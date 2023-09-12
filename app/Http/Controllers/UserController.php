@@ -210,10 +210,9 @@ class UserController extends Controller
             $this->under_line_style['index'] = "sub_menus_active";
             
             $search = request()->search;
-
             $users = User::where('name','LIKE','%'.$search.'%')->get();
-            $users_2 = User::where('email','LIKE','%'.$search.'%')->get();
-            return $this->return_path("Users.search",$users,$users_2);
+            
+            return $this->return_path("Users.index",$users,null);
         }
         return view('Users.login');
     }

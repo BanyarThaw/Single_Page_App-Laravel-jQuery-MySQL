@@ -82,7 +82,7 @@ class ajaxReceptionController extends Controller
             if($request->ajax())
             {
                 $guests = Guest::where('status','1')->orderBy('created_at','desc')->paginate(10);
-                return view('Reception.ajax.reception_check_in',compact('guests'))->render();
+                return view('Reception.ajax.check_in',compact('guests'))->render();
             }
             else {
                 return redirect('reception');
@@ -96,7 +96,7 @@ class ajaxReceptionController extends Controller
         if(Auth::check()) {
             if($request->ajax()) {
                 $guests = Guest::where('status','0')->orderBy('created_at','desc')->paginate(10);
-                return view('Reception.ajax.reception_check_out',compact('guests'))->render();
+                return view('Reception.ajax.check_out',compact('guests'))->render();
             }
             else {
                 return redirect('reception');

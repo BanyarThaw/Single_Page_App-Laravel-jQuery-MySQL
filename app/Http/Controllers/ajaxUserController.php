@@ -180,7 +180,7 @@ class ajaxUserController extends Controller
             $rooms = Room::all();
             return view('Templates.main_templates.ajax.main_template',compact('rooms'))->render();
         } else {
-            return view('Users.ajax.login')->render();
+            return view('Users.ajax.login')->with('info','Something went wrong.');
         }
     }
 

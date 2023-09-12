@@ -76,8 +76,8 @@ class GuestController extends Controller
     public function search() {
         if(Auth::check()) {
             $search = request()->search;
-            $guests = Guest::where('name','LIKE','%'.$search.'%')->orderBy('created_at','desc')->get();
-            return $this->return_path("Guests.search",$guests);
+            $guests = Guest::where('name','LIKE','%'.$search.'%')->orderBy('created_at','desc')->paginate(10);
+            return $this->return_path("Guests.index",$guests);
         }
         return view('Users.login');
     }
