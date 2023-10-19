@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Pagination\Paginator;
 
 class GuestController extends Controller
 {
@@ -15,27 +13,11 @@ class GuestController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //main titles (default option without js) (active effect)
-    private $main_titles = [
-        "guest" => "alive",
-        "reception" => "null",
-        "user" => "null",
-        "room" => "null"
-    ];
-
     /**
      * Return views or redirect for each routes.
      *
      * @return /views 
      */
-    public function return_path($path,$value) {
-        $guests = $value;
-        return view($path,compact('guests'))
-            ->with('main_title_guest',$this->main_titles['guest'])
-            ->with('main_title_reception',$this->main_titles['reception'])
-            ->with('main_title_user',$this->main_titles['user'])
-            ->with('main_title_room',$this->main_titles['room']);
-    }
 
     //menu icon (in mobile view,without js option)
     public function guests_menu_icon()

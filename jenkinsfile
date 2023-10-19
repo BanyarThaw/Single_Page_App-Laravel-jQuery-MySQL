@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    stages { 
+        stage("Go to project folder") {
+            steps {
+                sh '''
+                    cd /var/www/html/PRIVATE-Single_Page_App-Laravel-jQuery
+                '''
+            }
+        }  
+
+        stage("Git Pulling from branch") {
+            steps {
+                sh '''
+                    sudo git pull origin main
+                '''
+            }
+        }  
+
+        stage("Database Migration Fresh and Database Seeding") {
+            steps {
+                sh '''
+                    sudo php artisan migrate:fresh --seed
+                '''
+            }
+        }     
+    }
+}
