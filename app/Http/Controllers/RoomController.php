@@ -35,7 +35,7 @@ class RoomController extends Controller
     /**
      * Return views or redirect for each routes.
      *
-     * @return /views 
+     * @return /views
      */
     public function return_path($path,$value,$room_types) {
         $rooms = $value;
@@ -57,12 +57,10 @@ class RoomController extends Controller
     //menu icon (in mobile view,without js option)
     public function rooms_menu_icon()
     {
-        if(Auth::check()) {
-            $rooms = null;
-            $room_types = null;
-    
-            return $this->return_path("Rooms.menu_icon",$rooms,$room_types);
-        }
+        $rooms = null;
+        $room_types = null;
+
+        return $this->return_path("Rooms.menu_icon",$rooms,$room_types);
     }
 
     /**
@@ -72,15 +70,12 @@ class RoomController extends Controller
      */
     public function index()
     {
-        if(Auth::check()) {
-            $this->sub_titles['index'] = "sub_menu_anchor_active";
-            $this->under_line_style['index'] = "sub_menus_active";
+        $this->sub_titles['index'] = "sub_menu_anchor_active";
+        $this->under_line_style['index'] = "sub_menus_active";
 
-            $rooms = Room::all();
-            $room_types = null;
-            return $this->return_path("Rooms.index",$rooms,$room_types);
-        }
-        return view('Users.login');
+        $rooms = Room::orderBy('id','desc')->get();
+        $room_types = null;
+        return $this->return_path("Rooms.index",$rooms,$room_types);
     }
 
     /**
@@ -90,15 +85,12 @@ class RoomController extends Controller
      */
     public function create()
     {
-        if(Auth::check()) {
-            $this->sub_titles['create'] = "sub_menu_anchor_active";
-            $this->under_line_style['create'] = "sub_menus_active";
+        $this->sub_titles['create'] = "sub_menu_anchor_active";
+        $this->under_line_style['create'] = "sub_menus_active";
 
-            $room_types = RoomType::all();
-            $rooms = null;
-            return $this->return_path("Rooms.create",$rooms,$room_types);
-        }
-        return view('Users.login');
+        $room_types = RoomType::orderBy('id','desc')->get();
+        $rooms = null;
+        return $this->return_path("Rooms.create",$rooms,$room_types);
     }
 
     /**
@@ -132,14 +124,11 @@ class RoomController extends Controller
      */
     public function show($id)
     {
-        if(Auth::check()) {
-            $this->sub_titles['index'] = "sub_menu_anchor_active";
-            $this->under_line_style['index'] = "sub_menus_active";
-            $room = Room::find($id);
-            $room_types = null;
-            return $this->return_path("Rooms.show",$room,$room_types);
-        }
-        return view('Users.login');
+        $this->sub_titles['index'] = "sub_menu_anchor_active";
+        $this->under_line_style['index'] = "sub_menus_active";
+        $room = Room::find($id);
+        $room_types = null;
+        return $this->return_path("Rooms.show",$room,$room_types);
     }
 
     /**
@@ -150,14 +139,11 @@ class RoomController extends Controller
      */
     public function edit($id)
     {
-        if(Auth::check()) {
-            $this->sub_titles['index'] = "sub_menu_anchor_active";
-            $this->under_line_style['index'] = "sub_menus_active";
-            $room = Room::find($id);
-            $room_types = RoomType::all();
-            return $this->return_path("Rooms.edit",$room,$room_types);
-        }
-        return view('Users.login');
+        $this->sub_titles['index'] = "sub_menu_anchor_active";
+        $this->under_line_style['index'] = "sub_menus_active";
+        $room = Room::find($id);
+        $room_types = RoomType::all();
+        return $this->return_path("Rooms.edit",$room,$room_types);
     }
 
     /**
@@ -176,7 +162,7 @@ class RoomController extends Controller
         ]);
 
         $room = Room::find($id);
-        
+
         $room->room_name = request()->room_name;
         $room->room_number = request()->room_number;
         $room->room_type = request()->room_type;
@@ -194,10 +180,7 @@ class RoomController extends Controller
      */
     public function destroy(Room $room)
     {
-        if(Auth::check()) {
-            $room->delete();
-            return redirect('rooms');
-        }
-        return view('Users.login');
+        $room->delete();
+        return redirect('rooms');
     }
 }

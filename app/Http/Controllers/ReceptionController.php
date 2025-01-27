@@ -35,7 +35,7 @@ class ReceptionController extends Controller
     /**
      * Return views or redirect for each routes.
      *
-     * @return /views 
+     * @return /views
      */
     public function return_path($path,$value,$value2) {
         $rooms = $value;
@@ -56,27 +56,22 @@ class ReceptionController extends Controller
     //menu icon (in mobile view,without js option)
     public function reception_menu_icon()
     {
-        if(Auth::check()) {
-            $rooms = null;
-            $guests = null;
-    
-            return $this->return_path("Reception.menu_icon",$rooms,$guests);
-        }
+        $rooms = null;
+        $guests = null;
+
+        return $this->return_path("Reception.menu_icon",$rooms,$guests);
     }
 
 	//create guest
     public function create()
     {
-        if(Auth::check()) {
-            $this->sub_titles['create'] = "sub_menu_anchor_active";
-            $this->under_line_style['create'] = "sub_menus_active";
+        $this->sub_titles['create'] = "sub_menu_anchor_active";
+        $this->under_line_style['create'] = "sub_menus_active";
 
-            $rooms = Room::all();
-            $guests = null;
+        $rooms = Room::all();
+        $guests = null;
 
-            return $this->return_path("Reception.create",$rooms,$guests);
-        }
-        return view('Users.login');
+        return $this->return_path("Reception.create",$rooms,$guests);
     }
 
 	//store guest
@@ -112,66 +107,54 @@ class ReceptionController extends Controller
 	//reception/check in
     public function check_in()
     {
-        if(Auth::check()) {
-            $this->sub_titles['check_in'] = "sub_menu_anchor_active";
-            $this->under_line_style['check_in'] = "sub_menus_active";
+        $this->sub_titles['check_in'] = "sub_menu_anchor_active";
+        $this->under_line_style['check_in'] = "sub_menus_active";
 
-            $guests = Guest::where('status','1')->orderBy('created_at','desc')->paginate(10);
+        $guests = Guest::where('status','1')->orderBy('created_at','desc')->paginate(10);
 
-            $rooms = null;
+        $rooms = null;
 
-            return $this->return_path("Reception.check_in",$rooms,$guests);
-        }
-        return view('Users.login');
+        return $this->return_path("Reception.check_in",$rooms,$guests);
     }
 
 	//reception/check in/search
     public function check_in_search()
     {
-        if(Auth::check()) {
-            $this->sub_titles['check_in'] = "sub_menu_anchor_active";
-            $this->under_line_style['check_in'] = "sub_menus_active";
+        $this->sub_titles['check_in'] = "sub_menu_anchor_active";
+        $this->under_line_style['check_in'] = "sub_menus_active";
 
-            $search = request()->search;
+        $search = request()->search;
 
-            $guests = Guest::where('name','LIKE','%'.$search.'%')->where('status','1')->orderBy('created_at','desc')->paginate(10);
-            $rooms = null;
+        $guests = Guest::where('name','LIKE','%'.$search.'%')->where('status','1')->orderBy('created_at','desc')->paginate(10);
+        $rooms = null;
 
-            return $this->return_path("Reception.check_in",$rooms,$guests);
-        }
-        return view('Users.login');
+        return $this->return_path("Reception.check_in",$rooms,$guests);
     }
 
 	//reception/check out
     public function check_out()
     {
-        if(Auth::check()) {
-            $this->sub_titles['check_out'] = "sub_menu_anchor_active";
-            $this->under_line_style['check_out'] = "sub_menus_active";
+        $this->sub_titles['check_out'] = "sub_menu_anchor_active";
+        $this->under_line_style['check_out'] = "sub_menus_active";
 
-            $guests = Guest::where('status','0')->orderBy('created_at','desc')->paginate(10);
-            $rooms = null;
+        $guests = Guest::where('status','0')->orderBy('created_at','desc')->paginate(10);
+        $rooms = null;
 
-            return $this->return_path("Reception.check_out",$rooms,$guests);
-        }
-        return view('Users.login');
+        return $this->return_path("Reception.check_out",$rooms,$guests);
     }
 
 	//reception/check out/search
     public function check_out_search()
     {
-        if(Auth::check()) {
-            $this->sub_titles['check_out'] = "sub_menu_anchor_active";
-            $this->under_line_style['check_out'] = "sub_menus_active";
+        $this->sub_titles['check_out'] = "sub_menu_anchor_active";
+        $this->under_line_style['check_out'] = "sub_menus_active";
 
-            $search = request()->search;
+        $search = request()->search;
 
-            $guests = Guest::where('name','LIKE','%'.$search.'%')->where('status','0')->orderBy('created_at','desc')->paginate(10);
-            $rooms = null;
+        $guests = Guest::where('name','LIKE','%'.$search.'%')->where('status','0')->orderBy('created_at','desc')->paginate(10);
+        $rooms = null;
 
-            return $this->return_path("Reception.check_out",$rooms,$guests);
-        }
-        return view('Users.login');
+        return $this->return_path("Reception.check_out",$rooms,$guests);
     }
 
 	//make check out

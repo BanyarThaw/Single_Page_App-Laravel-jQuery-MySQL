@@ -7,7 +7,7 @@
 <h3 class="header_icon_for_mobile_screens">
     <img src="{{asset('icon/person-circle.png')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
 </h3>
-<!-- menu icon for menu pop up box (for mobile view) --> 
+<!-- menu icon for menu pop up box (for mobile view) -->
 <div class="menu_icon">
     <a href="/reception/menu_icon">
         <img src="{{asset('icon/card-list.png')}}" alt="Bootstrap" width="32" height="32"></img>
@@ -36,7 +36,7 @@
         <div class="sub_menus" id="body">
             <a href="/users/create" class="sub_menu_anchor">Create User</a>
         </div>
-        yield('user-list')
+        @yield('user-list')
     </div>
     <div class="detail_info col-md-9 col-sm-12 col-xs-12">
         {{ $content }}

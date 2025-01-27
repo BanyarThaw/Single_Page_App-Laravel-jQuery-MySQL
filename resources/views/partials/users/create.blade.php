@@ -12,7 +12,7 @@
 </div>
 <br>
 <!-- both desktop view and mobile view -->
-<form action="/users/create" method="post">
+<form action="{{ route('users.store') }}" method="post">
     {{ csrf_field() }}
     <div class="col-md-12 col-sm-12" id="user_user_input_data_form">
         <div class="user_input_data">
@@ -28,7 +28,7 @@
         <div class="user_input_data">
             <div class="col-md-12 col-sm-12" id="user_input_data_detail">
                 <div class="col-md-3 col-sm-12">
-                    Email : 
+                    Email :
                 </div>
                 <div class="col-md-9 col-sm-12">
                     <input type="text" name="email" id="user_user_input_data_detail_2" required>

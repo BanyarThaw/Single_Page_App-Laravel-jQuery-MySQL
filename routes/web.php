@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ajaxController;
 use App\Http\Controllers\ajaxReceptionController;
@@ -23,110 +24,130 @@ use App\Http\Controllers\RoomTypeController;
 |
 */
 
-//AJAX Routes
-//------------------
-Route::get('ajax_/',[ajaxReceptionController::class,'ajax_reception']);
-
-//reception
-Route::get('ajax_/reception',[ajaxReceptionController::class,'ajax_reception']);
-Route::post('ajax_/reception',[ajaxReceptionController::class,'ajax_reception_store']);
-Route::get('ajax_/reception/create',[ajaxReceptionController::class,'ajax_reception_create']);
-Route::get('ajax_/reception/check_in',[ajaxReceptionController::class,'ajax_reception_check_in']);
-Route::get('ajax_/reception/check_out',[ajaxReceptionController::class,'ajax_reception_check_out']);
-Route::get('ajax_/reception/make_check_out/{id}',[ajaxReceptionController::class,'ajax_reception_make_check_out']);
-Route::get('ajax/reception_check_in',[ajaxController::class,'reception_check_in']); //ajax pagination
-Route::get('ajax/reception_check_out',[ajaxController::class,'reception_check_out']); //ajax pagination
-Route::post('ajax/ajax_check_in_list',[ajaxController::class,'ajax_search_reception_check_in']); //ajax live search
-Route::post('ajax/ajax_check_out_list',[ajaxController::class,'ajax_search_reception_check_out']); //ajax live search
-
-//guests
-Route::get('ajax_/guests',[ajaxGuestController::class,'ajax_guests']);
-Route::get('ajax_/guests/list',[ajaxGuestController::class,'ajax_guests_list']);
-Route::get('ajax_/guests/{id}',[ajaxGuestController::class,'ajax_guests_show']);
-Route::get('ajax/guest_list',[ajaxController::class,'guest_list']); //ajax pagination
-Route::post('ajax/ajax_guest_list',[ajaxController::class,'ajax_search_guest_list']); //ajax live search
-
-//users
-Route::post('ajax_/users/login',[ajaxUserController::class,'ajax_users_login']);
-Route::get('ajax_/users/logout',[ajaxUserController::class,'ajax_users_logout']);
-Route::get('ajax_/users',[ajaxUserController::class,'ajax_users']);
-Route::get('ajax_/users/detail/{id}',[ajaxUserController::class,'ajax_users_show']);
-Route::get('ajax_/users/list',[ajaxUserController::class,'ajax_users_list']);
-Route::get('ajax_/users/create',[ajaxUserController::class,'ajax_users_create']);
-Route::post('ajax_/users/create',[ajaxUserController::class,'ajax_users_store']);
-Route::get('ajax_/users/edit/{id}',[ajaxUserController::class,'ajax_users_edit']);
-Route::post('ajax_/users/edit/{id}',[ajaxUserController::class,'ajax_users_update']);
-Route::get('ajax_/users/delete/{id}',[ajaxUserController::class,'ajax_users_delete']);
-Route::post('ajax/ajax_user_list',[ajaxController::class,'user_list']); //ajax live search
-
-//rooms
-Route::get('ajax_/rooms',[ajaxRoomController::class,'ajax_rooms']);
-Route::post('ajax_/rooms',[ajaxRoomController::class,'ajax_rooms_store']);
-Route::get('ajax_/rooms/list',[ajaxRoomController::class,'ajax_rooms_list']);
-Route::get('ajax_/rooms/detail/{id}',[ajaxRoomController::class,'ajax_rooms_show']);
-Route::get('ajax_/rooms/create',[ajaxRoomController::class,'ajax_rooms_create']);
-Route::get('ajax_/rooms/edit/{id}',[ajaxRoomController::class,'ajax_rooms_edit']);
-Route::post('ajax_/rooms/edit/{id}',[ajaxRoomController::class,'ajax_rooms_update']);
-
-//roomtypes
-Route::get('ajax_/roomtypes',[ajaxRoomTypeController::class,'ajax_roomtypes']);
-Route::post('ajax_/roomtypes',[ajaxRoomTypeController::class,'ajax_roomtypes_store']);
-Route::get('ajax_/roomtypes/create',[ajaxRoomTypeController::class,'ajax_roomtypes_create']);
-Route::get('ajax_/roomtypes/edit/{id}',[ajaxRoomTypeController::class,'ajax_roomtypes_edit']);
-Route::post('ajax_/roomtypes/edit/{id}',[ajaxRoomTypeController::class,'ajax_roomtypes_update']);
-
 //Ordinary Routes
 //-------------------
 Route::get('/',function() {
-    return redirect('/reception');
+    return redirect('/login');
 });
 
-//reception
-Route::get('reception',[ReceptionController::class,'create']);
-Route::post('reception',[ReceptionController::class,'store']);
-Route::get('reception/create',[ReceptionController::class,'create']);
-Route::get('reception/check_in',[ReceptionController::class,'check_in']);
-Route::get('reception/check_out',[ReceptionController::class,'check_out']);
-Route::get('reception/make_check_out/{id}',[ReceptionController::class,'make_check_out']);
-Route::post('reception/check_in/search',[ReceptionController::class,'check_in_search']);
-Route::post('reception/check_out/search',[ReceptionController::class,'check_out_search']);
-Route::get('reception/menu_icon',[ReceptionController::class,'reception_menu_icon']);
+Route::get('/login',function() {
+    Auth::logout();
+    return view('Users.login');
+})->name('login');
 
-//guests
-Route::post('guests/search',[GuestController::class,'search']);  //guests/search later
-Route::get('guests',[GuestController::class,'index']);
-Route::get('guests/list',[GuestController::class,'index']);
-Route::get('guests/{id}',[GuestController::class,'show']);
-Route::get('guests_list/menu_icon',[GuestController::class,'guests_menu_icon']);
+Route::get('/login',[UserController::class,'LoginForm'])->name('users.login_form');
+//Route::post('/users/login',[UserController::class,'login'])->name('users.login');
+Route::post('ajax_/users/login',[ajaxUserController::class,'ajax_users_login']);
 
-//users
-Route::get('users',[UserController::class,'index']);
-Route::get('users/list',[UserController::class,'index']);
-Route::get('users/login',[UserController::class,'LoginForm']);
-Route::post('users/login',[UserController::class,'login']);
-Route::get('users/logout',[UserController::class,'logout']);
-Route::get('users/create',[UserController::class,'create_form']);
-Route::post('users/create',[UserController::class,'create']);
-Route::get('users/detail/{id}',[UserController::class,'show']);
-Route::get('users/edit/{id}',[UserController::class,'edit']);
-Route::post('users/edit/{id}',[UserController::class,'update']);
-Route::get('users/delete/{id}',[UserController::class,'delete']);
-Route::post('users/search',[UserController::class,'search']);
-Route::get('users/menu_icon',[UserController::class,'users_menu_icon']);
+Route::middleware('auth')->group(function (){
 
-//rooms
-Route::get('rooms',[RoomController::class,'index']);
-Route::get('rooms/list',[RoomController::class,'index']);
-Route::get('rooms/detail/{id}',[RoomController::class,'show']);
-Route::get('rooms/create',[RoomController::class,'create']);
-Route::post('rooms',[RoomController::class,'store']);
-Route::get('rooms/edit/{id}',[RoomController::class,'edit']);
-Route::post('rooms/edit/{id}',[RoomController::class,'update']);
-Route::get('rooms/menu_icon',[RoomController::class,'rooms_menu_icon']);
+    Route::prefix('guests')->group(function (){
+        //guests
+        Route::get('/',[GuestController::class,'index'])->name('guests.index');
+        Route::get('/list',[GuestController::class,'index'])->name('guests.list');
+        Route::get('/list/menu_icon',[GuestController::class,'guests_menu_icon'])->name('guests.menu_icon');
+    });
 
-//room types
-Route::get('roomtypes',[RoomTypeController::class,'index']);
-Route::post('roomtypes',[RoomTypeController::class,'store']);
-Route::get('roomtypes/create',[RoomTypeController::class,'create']);
-Route::get('roomtypes/edit/{id}',[RoomTypeController::class,'edit']);
-Route::post('roomtypes/edit/{id}',[RoomTypeController::class,'update']);
+    Route::prefix('reception')->group(function (){
+        //reception
+        Route::get('/',[ReceptionController::class,'create'])->name('reception.index');
+        Route::get('/create',[ReceptionController::class,'create'])->name('reception.create');
+        Route::get('/check_in',[ReceptionController::class,'check_in'])->name('reception.check_in');
+        Route::get('/check_out',[ReceptionController::class,'check_out'])->name('reception.check_out');
+        Route::get('/menu_icon',[ReceptionController::class,'reception_menu_icon'])->name('reception.menu_icon');
+    });
+    Route::prefix('users')->group(function (){
+        //users
+        Route::get('/',[UserController::class,'index'])->name('users.index');
+        Route::get('/list',[UserController::class,'index'])->name('users.list');
+        Route::get('/logout',[UserController::class,'logout'])->name('users.logout');
+        Route::get('/menu_icon',[UserController::class,'users_menu_icon'])->name('users.menu_icon');
+    });
+
+    Route::prefix('rooms')->group(function (){
+        //rooms
+        Route::get('/',[RoomController::class,'index']);
+        Route::get('/list',[RoomController::class,'index']);
+        Route::get('/menu_icon',[RoomController::class,'rooms_menu_icon'])->name('rooms.menu_icon');
+
+    });
+
+    Route::prefix('roomtypes')->group(function (){
+        //room types
+        Route::get('/',[RoomTypeController::class,'index']);
+        Route::get('/create',[RoomTypeController::class,'create']);
+    });
+
+    //AJAX Routes
+    //------------------
+    Route::prefix('ajax_')->group(function () {
+        Route::get('/',[ajaxReceptionController::class,'ajax_reception']);
+
+        //guests
+        Route::prefix('guests')->group(function (){
+            Route::get('/', [ajaxGuestController::class, 'ajax_guests']);
+            Route::get('/list', [ajaxGuestController::class, 'ajax_guests_list']);
+            Route::get('/{id}', [ajaxGuestController::class, 'ajax_guests_show'])->name('guests.show');
+        });
+
+        Route::prefix('reception')->group(function (){
+            Route::get('/',[ajaxReceptionController::class,'ajax_reception']);
+            Route::get('/create',[ajaxReceptionController::class,'ajax_reception_create']);
+            Route::post('/',[ajaxReceptionController::class,'ajax_reception_store'])->name('reception.store');
+            Route::get('/check_in',[ajaxReceptionController::class,'ajax_reception_check_in']);
+            Route::get('/check_out',[ajaxReceptionController::class,'ajax_reception_check_out']);
+            Route::get('/make_check_out/{id}',[ajaxReceptionController::class,'ajax_reception_make_check_out'])->name('reception.make_check_out');
+        });
+
+        Route::prefix('users')->group(function (){
+            //users
+            Route::get('/logout',[ajaxUserController::class,'ajax_users_logout'])->name('logout');
+            Route::get('/',[ajaxUserController::class,'ajax_users']);
+            Route::get('/detail/{id}',[ajaxUserController::class,'ajax_users_show'])->name('users.show');
+            Route::get('/list',[ajaxUserController::class,'ajax_users_list']);
+            Route::get('/create',[ajaxUserController::class,'ajax_users_create']);
+            Route::post('/create',[ajaxUserController::class,'ajax_users_store'])->name('users.store');
+            Route::get('/edit/{id}',[ajaxUserController::class,'ajax_users_edit'])->name('users.edit');
+            Route::post('/edit/{id}',[ajaxUserController::class,'ajax_users_update'])->name('users.update');
+            Route::get('/delete/{id}',[ajaxUserController::class,'ajax_users_delete'])->name('users.delete');
+        });
+
+
+        Route::prefix('rooms')->group(function (){
+            //rooms
+            Route::get('/create',[ajaxRoomController::class,'ajax_rooms_create'])->name('rooms.create');
+            Route::get('/list',[ajaxRoomController::class,'ajax_rooms_list'])->name('rooms.index');
+            Route::get('/',[ajaxRoomController::class,'ajax_rooms'])->name('rooms');
+            Route::post('/store',[ajaxRoomController::class,'ajax_rooms_store'])->name('rooms.store');
+            Route::get('/detail/{id}',[ajaxRoomController::class,'ajax_rooms_show'])->name('rooms.show');
+            Route::get('/edit/{id}',[ajaxRoomController::class,'ajax_rooms_edit'])->name('rooms.edit');
+            Route::post('/edit/{id}',[ajaxRoomController::class,'ajax_rooms_update'])->name('rooms.update');
+        });
+
+        Route::prefix('roomtypes')->group(function () {
+            //roomtypes
+            Route::get('/', [ajaxRoomTypeController::class, 'ajax_roomtypes']);
+            Route::post('/', [ajaxRoomTypeController::class, 'ajax_roomtypes_store'])->name('roomtypes.store');;
+            Route::get('/create', [ajaxRoomTypeController::class, 'ajax_roomtypes_create'])->name('roomtypes.create');
+            Route::get('/edit/{id}', [ajaxRoomTypeController::class, 'ajax_roomtypes_edit'])->name('roomtypes.edit');
+            Route::post('/edit/{id}', [ajaxRoomTypeController::class, 'ajax_roomtypes_update'])->name('roomtypes.update');
+        });
+    });
+
+    Route::prefix('ajax')->group(function () {
+
+        //guests
+        Route::get('/guest_list', [ajaxController::class, 'guest_list']); //ajax pagination
+        Route::post('/ajax_guest_list', [ajaxController::class, 'ajax_search_guest_list']); //ajax live search
+
+        //receptions
+        Route::get('/reception_check_in',[ajaxController::class,'reception_check_in']); //ajax pagination
+        Route::get('/reception_check_out',[ajaxController::class,'reception_check_out']); //ajax pagination
+        Route::post('/ajax_check_in_list',[ajaxController::class,'ajax_search_reception_check_in']); //ajax live search
+        Route::post('/ajax_check_out_list',[ajaxController::class,'ajax_search_reception_check_out']); //ajax live search
+
+        //users
+        Route::post('/ajax_user_list',[ajaxController::class,'user_list']); //ajax live search
+    });
+
+});

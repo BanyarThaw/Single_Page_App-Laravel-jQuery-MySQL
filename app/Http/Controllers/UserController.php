@@ -32,7 +32,7 @@ class UserController extends Controller
     /**
      * Return views or redirect for each routes.
      *
-     * @return /views 
+     * @return /views
      */
     public function return_path($path,$value,$value_2) {
         $users = $value;
@@ -51,27 +51,22 @@ class UserController extends Controller
     //menu icon (in mobile view,without js option)
     public function users_menu_icon()
     {
-        if(Auth::check()) {
-            $users = null;
-            $users_2 = null;
-    
-            return $this->return_path("Users.menu_icon",$users,$users_2);
-        }
+        $users = null;
+        $users_2 = null;
+
+        return $this->return_path("Users.menu_icon",$users,$users_2);
     }
 
 	//users list
     public function index()
     {
-        if(Auth::check()) {
-            $this->sub_titles['index'] = "sub_menu_anchor_active";
-            $this->under_line_style['index'] = "sub_menus_active";
+        $this->sub_titles['index'] = "sub_menu_anchor_active";
+        $this->under_line_style['index'] = "sub_menus_active";
 
-            $users = User::orderBy('created_at','desc')->get();
-            $users_2 = null;
+        $users = User::orderBy('created_at','desc')->get();
+        $users_2 = null;
 
-            return $this->return_path("Users.index",$users,$users_2);
-        }
-        return view('Users.login');
+        return $this->return_path("Users.index",$users,$users_2);
     }
 
 	//login form
@@ -81,7 +76,7 @@ class UserController extends Controller
     }
 
 	//log in
-    public function login()
+    public function login(Request $request)
     {
         $input = request()->all();
 
@@ -99,30 +94,24 @@ class UserController extends Controller
 	//user detail
     public function show($id)
     {
-        if(Auth::check()) {
-            $this->sub_titles['index'] = "sub_menu_anchor_active";
-            $this->under_line_style['index'] = "sub_menus_active";
+        $this->sub_titles['index'] = "sub_menu_anchor_active";
+        $this->under_line_style['index'] = "sub_menus_active";
 
-            $user = User::find($id);
-            $user_2 = null;
+        $user = User::find($id);
+        $user_2 = null;
 
-            return $this->return_path("Users.show",$user,$user_2);
-        }
-        return view('Users.login');
+        return $this->return_path("Users.show",$user,$user_2);
     }
 
 	//create form (to create user)
     public function create_form()
     {
-        if(Auth::check()) {
-            $this->sub_titles['create'] = "sub_menu_anchor_active";
-            $this->under_line_style['create'] = "sub_menus_active";
+        $this->sub_titles['create'] = "sub_menu_anchor_active";
+        $this->under_line_style['create'] = "sub_menus_active";
 
-            $user = null;
-            $user_2 = null;
-            return $this->return_path("Users.create_form",$user,$user_2);
-        }
-        return view('Users.login');
+        $user = null;
+        $user_2 = null;
+        return $this->return_path("Users.create_form",$user,$user_2);
     }
 
 	//create user
@@ -147,16 +136,13 @@ class UserController extends Controller
 
 	//edit user
     public function edit($id) {
-        if(Auth::check()) {
-            $this->sub_titles['index'] = "sub_menu_anchor_active";
-            $this->under_line_style['index'] = "sub_menus_active";
+        $this->sub_titles['index'] = "sub_menu_anchor_active";
+        $this->under_line_style['index'] = "sub_menus_active";
 
-            $user = User::find($id);
-            $user_2 = null;
+        $user = User::find($id);
+        $user_2 = null;
 
-            return $this->return_path("Users.edit_form",$user,$user_2);
-        }
-        return view('Users.login');
+        return $this->return_path("Users.edit_form",$user,$user_2);
     }
 
 	//update user
@@ -166,30 +152,22 @@ class UserController extends Controller
             "email" => "required|email",
         ]);
 
-        if(request()->password) {
-            $user = User::find($id);
+        $user = User::find($id);
 
-            $user->name = request()->name;
-            $user->email = request()->email;
+        $user->name = request()->name;
+        $user->email = request()->email;
+        if(isset(request()->password)){
             $user->password = Hash::make(request()->password);
-            $user->save();
         }
-        else {
-            $user = User::find($id);
+        $user->update();
 
-            $user->name = request()->name;
-            $user->email = request()->email;
-            $user->save();
-        }
         return redirect('users')->with("info","User updated!!!");
     }
 
 	//log out
     public function logout() {
-        if(Auth::check()) {
-            Auth::logout();
-            return redirect('users/login');
-        }
+        Auth::logout();
+        return redirect('users/login');
     }
 
 	//delete user
@@ -205,15 +183,12 @@ class UserController extends Controller
 
 	//search user
     public function search() {
-        if(Auth::check()) {
-            $this->sub_titles['index'] = "sub_menu_anchor_active";
-            $this->under_line_style['index'] = "sub_menus_active";
-            
-            $search = request()->search;
-            $users = User::where('name','LIKE','%'.$search.'%')->get();
-            
-            return $this->return_path("Users.index",$users,null);
-        }
-        return view('Users.login');
+        $this->sub_titles['index'] = "sub_menu_anchor_active";
+        $this->under_line_style['index'] = "sub_menus_active";
+
+        $search = request()->search;
+        $users = User::where('name','LIKE','%'.$search.'%')->get();
+
+        return $this->return_path("Users.index",$users,null);
     }
 }

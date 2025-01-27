@@ -6,20 +6,20 @@ $(document).ready(function() {
     $(document).on('click','#header a', function(event) {
 		//show loader container
         $("#loader-container").show();
-		
+
 		//show loader
         $("#loader").show();
-		
+
 		//prevent default action
         event.preventDefault();
-		
+
 		//get process file from anchor tag's herf and add it to a variable(processFile)
         var processFile = $(this).attr('href');
-		
+
 		//modify that variable(processFile)
         processFile = "/ajax_"+processFile;
 
-		//call loadPage function to load page from return 
+		//call loadPage function to load page from return
         loadPage(processFile);
     });
 

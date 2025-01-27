@@ -1,8 +1,8 @@
 /**
- * This js script is a script that shows pop up dialog while showing each 
+ * This js script is a script that shows pop up dialog while showing each
  * respective detail info (guest detail,user detail,rooms detail,roomtypes detail)
  */
- 
+
 $(document).ready(function() {
    $(document).on('click','.detail_anchor', function(event) {
 		//prevent default action
@@ -10,10 +10,10 @@ $(document).ready(function() {
 
 		//show loader container
 		$("#loader-container").show();
-		
+
 		//show loader
 		$("#loader").show();
-		
+
 		//Get the modal
 		var modal = document.getElementById("myModal");
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
 		var processFile = $(this).attr('href');
 
 		//modify that variable(processFile)
-		processFile = "/ajax_"+processFile;
+		// processFile = "/ajax_"+processFile;
 
 		//call loadPage function to show return value from controller
 		loadPage(processFile);

@@ -32,7 +32,7 @@ class RoomTypeController extends Controller
     /**
      * Return views or redirect for each routes.
      *
-     * @return /views 
+     * @return /views
      */
     public function return_path($path,$value) {
         $room_types = $value;
@@ -56,14 +56,11 @@ class RoomTypeController extends Controller
      */
     public function index()
     {
-        if(Auth::check()) {
-            $this->sub_titles['index'] = "sub_menu_anchor_active";
-            $this->under_line_style['index'] = "sub_menus_active";
+        $this->sub_titles['index'] = "sub_menu_anchor_active";
+        $this->under_line_style['index'] = "sub_menus_active";
 
-            $room_types = RoomType::all();
-            return $this->return_path("RoomType.index",$room_types);
-        }
-        return view('Users.login');
+        $room_types = RoomType::all();
+        return $this->return_path("RoomType.index",$room_types);
     }
 
     /**
@@ -73,14 +70,11 @@ class RoomTypeController extends Controller
      */
     public function create()
     {
-        if(Auth::check()) {
-            $this->sub_titles['create'] = "sub_menu_anchor_active";
-            $this->under_line_style['create'] = "sub_menus_active";
+        $this->sub_titles['create'] = "sub_menu_anchor_active";
+        $this->under_line_style['create'] = "sub_menus_active";
 
-            $room_types = null;
-            return $this->return_path("RoomType.create",$room_types);       
-        }
-        return view('Users.login');
+        $room_types = null;
+        return $this->return_path("RoomType.create",$room_types);
     }
 
     /**
@@ -111,10 +105,7 @@ class RoomTypeController extends Controller
      */
     public function show(RoomType $roomType)
     {
-        if(Auth::check()) {
-            return redirect('roomtypes');
-        }
-        return view('Users.login');
+        return redirect('roomtypes');
     }
 
     /**
@@ -125,15 +116,12 @@ class RoomTypeController extends Controller
      */
     public function edit($id)
     {
-        if(Auth::check()) {
-            $this->sub_titles['index'] = "sub_menu_anchor_active";
-            $this->under_line_style['index'] = "sub_menus_active";
+        $this->sub_titles['index'] = "sub_menu_anchor_active";
+        $this->under_line_style['index'] = "sub_menus_active";
 
-            $room_type = RoomType::find($id);
+        $room_type = RoomType::find($id);
 
-            return $this->return_path("RoomType.edit",$room_type);
-        }
-        return view('Users.login');
+        return $this->return_path("RoomType.edit",$room_type);
     }
 
     /**
@@ -165,10 +153,7 @@ class RoomTypeController extends Controller
      */
     public function destroy(RoomType $roomtype)
     {
-        if(Auth::check()) {
-            $roomtype->delete();
-            return redirect('roomtypes');
-        }
-        return view('Users.login');
+        $roomtype->delete();
+        return redirect('roomtypes');
     }
 }

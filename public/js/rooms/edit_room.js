@@ -6,10 +6,10 @@ $(document).ready(function() {
     $(document).on('click','.edit_room',function (event) {
 		//prevent default action
         event.preventDefault();
-		
+
 		//show loaer container
         $("#loader-container").show();
-		
+
 		//show loader
         $("#loader").show();
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
         let processFile = $('form').attr('action');
 
 		//modify that variable(processFile)
-        processFile = "/ajax_"+processFile;
+        // processFile = "/ajax_"+processFile;
 
 		//get csrf token for security reason
         let csrf_token = $("input[name='_token']").val();
@@ -30,6 +30,8 @@ $(document).ready(function() {
 
 		//get room type from input
         var room_type = $('select[name="room_type"]').val();
+
+    console.log(processFile);
 
 		//make an ajax call
         $.ajax({
@@ -62,11 +64,11 @@ $(document).ready(function() {
 
 		//make a regex
         const regex = /Edit Room/g;
-		
+
 		//check if regex is found in variable(html_markup)
 		const found = html_markup.match(regex);
 
-        //if response is edit dialog box 
+        //if response is edit dialog box
         if (found) {
 			//add to modal-content div element
             $('.modal-content div').html(html_markup);
@@ -78,24 +80,24 @@ $(document).ready(function() {
         else {
 			//add to detail_info div element
             $('.detail_info').html(response);
-			
+
 			//fade out  the modal
-            $("#myModal").fadeOut(); 
+            $("#myModal").fadeOut();
 
 			//remove active effect and replace it with normal effect
             $('.sub_menus').removeClass('sub_menus_active').addClass('sub_menus');
             $('.sub_menus a').removeClass('sub_menu_anchor_active').addClass('sub_menu_anchor');
-			
+
 			//add active effect to rooms/list section
             $('.sub_menus a[href="/rooms/list"]').parent().addClass('sub_menus_active');
             $('.sub_menus a[href="/rooms/list"]').removeClass('sub_menu_anchor').addClass('sub_menu_anchor_active');
-			
+
 			//change url from web browser
             $.ChangeUrl('Web Application','/rooms') //custom jquery plugin
 
             //add message to message dialog box
             $('.message_dialog').text("Room edited.");
-            
+
             //remove html elements of modal-content after 2 seconds
             setTimeout(function() {
                 $(".modal-content div").empty();

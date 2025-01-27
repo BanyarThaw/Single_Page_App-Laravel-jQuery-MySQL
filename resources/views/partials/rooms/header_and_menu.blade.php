@@ -7,9 +7,9 @@
 <h3 class="header_icon_for_mobile_screens">
     <img src="{{asset('icon/door-closed.png')}}" alt="Bootstrap" width="32" height="32" class="header_icon"></img>
 </h3>
-<!-- menu icon for menu pop up box (for mobile view) --> 
+<!-- menu icon for menu pop up box (for mobile view) -->
 <div class="menu_icon">
-    <a href="/rooms/menu_icon">
+    <a href="{{ route('rooms.menu_icon') }}">
         <img src="{{asset('icon/card-list.png')}}" alt="Bootstrap" width="32" height="32"></img>
     </a>
 </div>

@@ -6,10 +6,10 @@ $(document).ready(function() {
     $(document).on('click','.edit_user',function (event) {
 		//show loader container
         $("#loader-container").show();
-		
+
 		//show loader
         $("#loader").show();
-		
+
 		//prevent default action
         event.preventDefault();
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
         let processFile = $('form').attr('action');
 
 		//modify that variable(processFile)
-        processFile = "/ajax_"+processFile;
+        // processFile = "/ajax_"+processFile;
 
 		//get csrf token for security reason
         let csrf_token = $("input[name='_token']").val();
@@ -72,13 +72,13 @@ $(document).ready(function() {
             $('.modal-content div').html(html_markup);
 
             //add message to message dialog box
-            $('.message_dialog').text("Something went wrong."); 
+            $('.message_dialog').text("Something went wrong.");
         }
         //if response is user list
         else {
 			//add to detail_info div element
             $('.detail_info').html(html_markup);
-			
+
 			//fade out  the modal
             $("#myModal").fadeOut(1000);
 
@@ -89,13 +89,13 @@ $(document).ready(function() {
 			//add active effect to users/list section
             $('.sub_menus a[href="/users/list"]').parent().addClass('sub_menus_active');
             $('.sub_menus a[href="/users/list"]').removeClass('sub_menu_anchor').addClass('sub_menu_anchor_active');
-            
+
 			//chagne url from web browser
 			$.ChangeUrl('Web Application','/users/list') //custom jquery plugin
 
             //add message to message dialog box
             $('.message_dialog').text("User edited.");
-            
+
             //remove html elements of modal-content after 2 seconds
             setTimeout(function() {
                 $(".modal-content div").empty();

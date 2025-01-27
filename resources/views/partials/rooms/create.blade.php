@@ -12,7 +12,7 @@
 </div>
 <br>
 <!-- both desktop view and mobile view -->
-<form action="/rooms" method="post" enctype="multipart/form-data" class="user_form">
+<form action="{{ route('rooms.store') }}" method="post" enctype="multipart/form-data" class="user_form">
     {{ csrf_field() }}
     <div class="room_input_data_form col-md-12 col-sm-12 col-xs-12">
         <div class="room_input_data">

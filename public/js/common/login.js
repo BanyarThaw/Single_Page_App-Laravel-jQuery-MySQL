@@ -6,7 +6,7 @@ $(document).ready(function() {
     $(document).on('click','.login_button', function(event) {
 		//show loader container
         $("#loader-container").show();
-		
+
 		//show loader
         $("#loader").show();
 
@@ -22,16 +22,16 @@ $(document).ready(function() {
 		//modify the variable(processFile)
         processFile = "/ajax_"+processFile;
 
-		//since we have two form inputs 
+		//since we have two form inputs
 		//we need to check which form's input elements have
-		//real data 
+		//real data
         function return_value(class_name) {
             var value;
             $(class_name).each(function() {
                 var length = $(this).val().length;
                 if(length > 0) {
                     value = $(this).val();
-                } 
+                }
             });
             return value;
         }
@@ -50,13 +50,13 @@ $(document).ready(function() {
             dataType: 'text',
             success: function( response ) {
                 $('.container').html(response);  //add response within class named "container"
-                
+
                 var title = $(".header_login h3").text(); //get header content
 
 				//check header content(response checking)
                 if(title == "Web Application") {
                     // In case of login failed
-                    $('.login_header').text("Login failed."); 
+                    $('.login_header').text("Login failed.");
                 }
             },
             error: function ( error ) {
@@ -68,7 +68,7 @@ $(document).ready(function() {
                 $("#loader-container").fadeOut(1000);
             }
         });
-		
+
         //change url
         $.ChangeUrl("Web Application","/reception") //custom jquery plugin
     });

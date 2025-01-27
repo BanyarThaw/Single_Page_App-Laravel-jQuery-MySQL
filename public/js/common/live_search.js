@@ -9,11 +9,11 @@ $(document).ready(function() {
     $(document).on('input','#Search', function(event) {
 		//show live search effect while loading
         $(".snippet").show();
-		
-		//get url form currently clicked element's class name and add it to 
+
+		//get url form currently clicked element's class name and add it to
 		//a variable(processFile)
         var processFile = this.className;
-		
+
 		//modify that variable(processFile)
         processFile = "/ajax/"+processFile;
 
@@ -46,7 +46,7 @@ $(document).ready(function() {
         //make an ajax call
         $.ajax({
             type: "POST",
-            url: processFile,                           
+            url: processFile,
             data: "search="+value+"&&_token="+csrf_token,
             dataType: 'json',
             success: function(data) {
@@ -67,9 +67,9 @@ $(document).ready(function() {
             var name = element.name;
             var highlighted_name = highlight(name); //highlight searched words
             if(anchor == "users") {
-                $("#search_results").append("<div class='search_result_detail'><b><a href='/"+anchor+"/detail/"+id+"' class='user_detail_anchor detail_anchor'>"+highlighted_name+"</a></b></div>");
+                $("#search_results").append("<div class='search_result_detail'><b><a href='/ajax_/"+anchor+"/detail/"+id+"' class='user_detail_anchor detail_anchor'>"+highlighted_name+"</a></b></div>");
             } else {
-                $("#search_results").append("<div class='search_result_detail'><b><a href='/"+anchor+"/"+id+"' class='user_detail_anchor detail_anchor'>"+highlighted_name+"</a></b></div>");
+                $("#search_results").append("<div class='search_result_detail'><b><a href='/ajax_/"+anchor+"/"+id+"' class='user_detail_anchor detail_anchor'>"+highlighted_name+"</a></b></div>");
             }
         });
     }

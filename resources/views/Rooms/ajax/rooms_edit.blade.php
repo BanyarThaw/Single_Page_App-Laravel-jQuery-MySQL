@@ -1,5 +1,5 @@
 <h3><b>Edit Room</b></h3>
-<form action="/rooms/edit/{{ $room->id }}" method="post">
+<form action="{{ route('rooms.update',$room->id) }}" method="post">
     {{ csrf_field() }}
     <label>Room Name :</label>
     <br>

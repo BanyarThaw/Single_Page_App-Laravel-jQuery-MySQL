@@ -1,5 +1,5 @@
 <h3><b>Edit User</b></h3>
-<form action="/users/edit/{{ $user->id }}" method="post">
+<form action="{{ route('users.edit',$user->id) }}" method="post">
     {{ csrf_field() }}
     <label>Name :</label>
     <br>

@@ -27,19 +27,19 @@
         <div class="col-md-9 col-sm-9 col-xs-8 name">
             @if(Auth::user()->id == $user->id)
                 <b>
-                    <a href="/users/detail/{{$user->id}}" id="current_user_detail_anchor" class="detail_anchor" id="myBtn">
+                    <a href="{{ route('users.show',$user->id) }}" id="current_user_detail_anchor" class="detail_anchor" id="myBtn">
                         @php $words_limit = $words_count::words_limit($user->name); echo $words_limit; @endphp
                     </a>
                 </b>
             @else
-                <a href="/users/detail/{{$user->id}}" class="detail_anchor" id="myBtn">
+                <a href="{{ route('users.show',$user->id) }}" class="detail_anchor" id="myBtn">
                     @php $words_limit = $words_count::words_limit($user->name); echo $words_limit; @endphp
                 </a>
             @endif
-            <a href="/users/delete/{{ $user->id }}" class="anchor_check_out_2 delete_user">
+            <a href="{{ route('users.delete',$user->id) }}" class="anchor_check_out_2 delete_user">
                 <img src="{{asset('icon/trash-fill.png')}}" alt="Bootstrap" width="15" height="15"></img>
             </a>
-            <a href="/users/edit/{{ $user->id }}" class="anchor_edit detail_anchor">
+            <a href="{{ route('users.edit',$user->id) }}" class="anchor_edit detail_anchor">
                 <img src="{{asset('icon/pencil-square.png')}}" alt="Bootstrap" width="15" height="15"></img>
             </a>
         </div>
@@ -52,19 +52,19 @@
         <div class="reception_user_list_mobile_detail">
             <h5 class="date_format_mobile">{{ $user->created_at->format('d.n.Y') }}</h5>
             @if(Auth::user()->id == $user->id)
-                <a href="/users/detail/{{$user->id}}" id="current_user_detail_anchor" class="detail_anchor" id="myBtn">
+                <a href="{{ route('users.show',$user->id) }}" id="current_user_detail_anchor" class="detail_anchor" id="myBtn">
                     <p class="name_mobile">@php $words_limit = $words_count::words_limit($user->name); echo $words_limit; @endphp</p>
                 </a>
             @else
-                <a href="/users/detail/{{$user->id}}" class="detail_anchor" id="myBtn">
+                <a href="{{ route('users.show',$user->id) }}" class="detail_anchor" id="myBtn">
                     <p class="name_mobile">@php $words_limit = $words_count::words_limit($user->name); echo $words_limit; @endphp</p>
                 </a>
             @endif
             <br>
-            <a href="/users/delete/{{ $user->id }}" class="delete_user delete_user_button">
+            <a href="{{ route('users.delete',$user->id) }}" class="delete_user delete_user_button">
                 <img src="{{asset('icon/trash-fill.png')}}" alt="Bootstrap" width="20" height="20"></img>
             </a>
-            <a href="/users/edit/{{ $user->id }}" class="detail_anchor edit_user_button">
+            <a href="{{ route('users.edit',$user->id) }}" class="detail_anchor edit_user_button">
                 <img src="{{asset('icon/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img>
             </a>
         </div>

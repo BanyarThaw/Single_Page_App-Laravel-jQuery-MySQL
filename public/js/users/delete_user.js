@@ -1,15 +1,15 @@
 /**
  * This js script is a script that provides single page app effect when user deletes another user
  */
- 
+
 $(document).ready(function() {
     $(document).on('click','.delete_user',function (event) {
 		//show loader container
         $("#loader-container").show();
-		
+
 		//show loader
         $("#loader").show();
-		
+
 		//prevent default action
         event.preventDefault();
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
         let processFile = $(this).attr('href');
 
 		//modify that variable(processFile)
-        processFile = "/ajax_"+processFile;
+        // processFile = "/ajax_"+processFile;
 
 		//make an ajax call
         $.ajax({

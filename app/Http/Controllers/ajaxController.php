@@ -13,134 +13,103 @@ class ajaxController extends Controller
 	//----------------
     //reception/check in/ajax pagination
     public function reception_check_in(Request $request) {
-        if(Auth::check()) {
-            if($request->ajax())
-            {
-                $guests = Guest::where('status','1')->orderBy('created_at','desc')->paginate(10);
-                return view('Reception.check_in_guest_foreach',compact('guests'))->render();
-            }
-            else {
-                return redirect('reception');
-            }
+        if($request->ajax())
+        {
+            $guests = Guest::where('status','1')->orderBy('created_at','desc')->paginate(10);
+            return view('Reception.check_in_guest_foreach',compact('guests'))->render();
         }
-        return view('Users.login');
+        return redirect('reception');
     }
 	//reception/check in/live search
     public function ajax_search_reception_check_in(Request $request) {
-        if(Auth::check()) {
-            if($request->ajax())
+        if($request->ajax())
+        {
+            $search = request()->search;
+            if($search == null)
             {
-                $search = request()->search;
-                if($search == null)
-                {
-                    $search_results = array();
+                $search_results = array();
 
-                    return $search_results;
-                    exit();
-                }
-                $search_results = Guest::where('name','LIKE','%'.$search.'%')->where('status','1')->orderBy('created_at','desc')->get();
-                $json_search_results = response()->json($search_results);
-                return $json_search_results;
+                return $search_results;
+                exit();
             }
-            else {
-                return redirect('reception');
-            }
+            $search_results = Guest::where('name','LIKE','%'.$search.'%')->where('status','1')->orderBy('created_at','desc')->get();
+            $json_search_results = response()->json($search_results);
+            return $json_search_results;
         }
-        return view('Users.login');
+        return redirect('reception');
+
     }
 	//reception/check out/ajax pagination
     public function reception_check_out(Request $request) {
-        if(Auth::check()) {
-            if($request->ajax())
-            {
-                $guests = Guest::where('status','0')->orderBy('created_at','desc')->paginate(10);
-                return view('Reception.check_out_guest_foreach',compact('guests'))->render();
-            }
-            return redirect('reception');
+        if($request->ajax())
+        {
+            $guests = Guest::where('status','0')->orderBy('created_at','desc')->paginate(10);
+            return view('Reception.check_out_guest_foreach',compact('guests'))->render();
         }
-        return view('Users.login');
+        return redirect('reception');
     }
 	//reception/check out/live search
-    public function ajax_search_reception_check_out(Request $request) {
-        if(Auth::check()) {
-            if($request->ajax())
-            {
-                $search = request()->search;
-                if($search == null)
-                {
-                    $search_results = array();
-                    return $search_results;
-                    exit();
-                }
-                $search_results = Guest::where('name','LIKE','%'.$search.'%')->where('status','0')->orderBy('created_at','desc')->get();
-                $json_search_results = response()->json($search_results);
-                return $json_search_results;
+    public function ajax_search_reception_check_out(Request $request)
+    {
+        if ($request->ajax()) {
+            $search = request()->search;
+            if ($search == null) {
+                $search_results = array();
+                return $search_results;
             }
-            else {
-                return redirect('reception');
-            }
+            $search_results = Guest::where('name', 'LIKE', '%' . $search . '%')->where('status', '0')->orderBy('created_at', 'desc')->get();
+            $json_search_results = response()->json($search_results);
+            return $json_search_results;
         }
-        return view('Users.login');
+        return redirect('reception');
     }
 
     //Guests
 	//----------------
 	//guests/list/ajax pagination
     public function guest_list(Request $request) {
-        if(Auth::check()) {
-            if($request->ajax())
-            {
-                $guests = Guest::orderBy('created_at','desc')->paginate(10);
-                return view('Guests.guest_foreach',compact('guests'))->render();
-            }
-            else {
-                return redirect('reception');
-            }
+        if($request->ajax())
+        {
+            $guests = Guest::orderBy('created_at','desc')->paginate(10);
+            return view('Guests.guest_foreach',compact('guests'))->render();
         }
-        return view('Users.login');
+        return redirect('reception');
     }
 	//guests/list/live search
     public function ajax_search_guest_list(Request $request) {
-        if(Auth::check()) {
-            if($request->ajax())
+        if($request->ajax())
+        {
+            $search = request()->search;
+            if($search == null)
             {
-                $search = request()->search;
-                if($search == null)
-                {
-                    $search_results = array();
+                $search_results = array();
 
-                    return $search_results;
-                    exit();
-                }
-                $search_results = Guest::where('name','LIKE','%'.$search.'%')->get();
-                $json_search_results = response()->json($search_results);
-                return $json_search_results;
+                return $search_results;
+                exit();
             }
-            else {
-                return redirect('reception');
-            }
+            $search_results = Guest::where('name','LIKE','%'.$search.'%')->get();
+            $json_search_results = response()->json($search_results);
+            return $json_search_results;
         }
-        return view('Users.login');
+        return redirect('reception');
+
     }
 
     //Users
 	//----------------
 	//users/list/live search
     public function user_list(Request $request) {
-        if(Auth::check()) {
-            if($request->ajax())
+        if($request->ajax())
+        {
+            $search = request()->search;
+            if($search == null)
             {
-                $search = request()->search;
-                if($search == null)
-                {
-                    $search_results = array();
-                    return $search_results;
-                    exit();
-                }
-                $search_results = User::where('name','LIKE','%'.$search.'%')->get();
-                $json_search_results = response()->json($search_results);
-                return $json_search_results;
+                $search_results = array();
+                return $search_results;
             }
+            $search_results = User::where('name','LIKE','%'.$search.'%')->get();
+            $json_search_results = response()->json($search_results);
+            return $json_search_results;
         }
     }
 }
