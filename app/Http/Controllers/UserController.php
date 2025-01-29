@@ -38,14 +38,18 @@ class UserController extends Controller
         $users = $value;
         $users_2 = $value_2;
         return view($path,compact('users','users_2'))
-            ->with('main_title_guest',$this->main_titles['guest'])
-            ->with('main_title_reception',$this->main_titles['reception'])
-            ->with('main_title_user',$this->main_titles['user'])
-            ->with('main_title_room',$this->main_titles['room'])
-            ->with('sub_title_index',$this->sub_titles['index'])
-            ->with('sub_title_create',$this->sub_titles['create'])
-            ->with('under_line_style_index',$this->under_line_style['index'])
-            ->with('under_line_style_create',$this->under_line_style['create']);
+           ->with(array_merge(
+               [
+                   'main_title_guest' => $this->main_titles['guest'],
+                   'main_title_reception' => $this->main_titles['reception'],
+                   'main_title_user' => $this->main_titles['user'],
+                   'main_title_room' => $this->main_titles['room'],
+                   'sub_title_index' => $this->sub_titles['index'],
+                   'sub_title_create' => $this->sub_titles['create'],
+                   'under_line_style_index' => $this->under_line_style['index'],
+                   'under_line_style_create' => $this->under_line_style['create'],
+               ]
+           ));
     }
 
     //menu icon (in mobile view,without js option)

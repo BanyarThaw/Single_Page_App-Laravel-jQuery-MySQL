@@ -25,7 +25,7 @@ class RoomController extends Controller
         "roomtype" => "sub_menu_anchor",
         "roomtype_create" => "sub_menu_anchor"
     ];
-    private $under_line_style = [
+    private $under_line_styles = [
         "index" => "no_style",
         "create" => "no_style",
         "roomtype" => "no_style",
@@ -40,18 +40,22 @@ class RoomController extends Controller
     public function return_path($path,$value,$room_types) {
         $rooms = $value;
         return view($path,compact('rooms','room_types'))
-            ->with('main_title_guest',$this->main_titles['guest'])
-            ->with('main_title_reception',$this->main_titles['reception'])
-            ->with('main_title_user',$this->main_titles['user'])
-            ->with('main_title_room',$this->main_titles['room'])
-            ->with('sub_title_index',$this->sub_titles['index'])
-            ->with('sub_title_create',$this->sub_titles['create'])
-            ->with('sub_title_roomtype',$this->sub_titles['roomtype'])
-            ->with('sub_title_roomtype_create',$this->sub_titles['roomtype_create'])
-            ->with('under_line_style_index',$this->under_line_style['index'])
-            ->with('under_line_style_create',$this->under_line_style['create'])
-            ->with('under_line_style_roomtype',$this->under_line_style['roomtype'])
-            ->with('under_line_style_roomtype_create',$this->under_line_style['roomtype_create']);
+            ->with(array_merge(
+                [
+                    'main_title_guest' => $this->main_titles['guest'],
+                    'main_title_reception' => $this->main_titles['reception'],
+                    'main_title_user' => $this->main_titles['user'],
+                    'main_title_room' => $this->main_titles['room'],
+                    'sub_title_index' => $this->sub_titles['index'],
+                    'sub_title_create' => $this->sub_titles['create'],
+                    'sub_title_roomtype' => $this->sub_titles['roomtype'],
+                    'sub_title_roomtype_create' => $this->sub_titles['roomtype_create'],
+                    'under_line_style_index' => $this->under_line_styles['index'],
+                    'under_line_style_create' => $this->under_line_styles['create'],
+                    'under_line_style_roomtype' => $this->under_line_styles['roomtype'],
+                    'under_line_style_roomtype_create' => $this->under_line_styles['roomtype_create'],
+                ]
+            ));
     }
 
     //menu icon (in mobile view,without js option)
@@ -63,11 +67,7 @@ class RoomController extends Controller
         return $this->return_path("Rooms.menu_icon",$rooms,$room_types);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $this->sub_titles['index'] = "sub_menu_anchor_active";
@@ -78,11 +78,7 @@ class RoomController extends Controller
         return $this->return_path("Rooms.index",$rooms,$room_types);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $this->sub_titles['create'] = "sub_menu_anchor_active";
@@ -93,12 +89,7 @@ class RoomController extends Controller
         return $this->return_path("Rooms.create",$rooms,$room_types);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $validatedData = request()->validate([
@@ -116,12 +107,6 @@ class RoomController extends Controller
         return redirect('rooms')->with("info","New Room created!!!");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Room  $room
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $this->sub_titles['index'] = "sub_menu_anchor_active";
@@ -131,12 +116,7 @@ class RoomController extends Controller
         return $this->return_path("Rooms.show",$room,$room_types);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Room  $room
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $this->sub_titles['index'] = "sub_menu_anchor_active";
@@ -146,13 +126,7 @@ class RoomController extends Controller
         return $this->return_path("Rooms.edit",$room,$room_types);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Room  $room
-     * @return \Illuminate\Http\Response
-     */
+
     public function update($id)
     {
         $validatedData = request()->validate([
@@ -172,12 +146,7 @@ class RoomController extends Controller
         return redirect('rooms')->with("info","Room updated!!!");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Room  $room
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Room $room)
     {
         $room->delete();

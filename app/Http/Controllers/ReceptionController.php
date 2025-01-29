@@ -41,16 +41,20 @@ class ReceptionController extends Controller
         $rooms = $value;
         $guests = $value2;
         return view($path,compact('rooms','guests'))
-            ->with('main_title_guest',$this->main_titles['guest'])
-            ->with('main_title_reception',$this->main_titles['reception'])
-            ->with('main_title_user',$this->main_titles['user'])
-            ->with('main_title_room',$this->main_titles['room'])
-            ->with('sub_title_create',$this->sub_titles['create'])
-            ->with('sub_title_check_in',$this->sub_titles['check_in'])
-            ->with('sub_title_check_out',$this->sub_titles['check_out'])
-            ->with('under_line_style_create',$this->under_line_style['create'])
-            ->with('under_line_style_check_in',$this->under_line_style['check_in'])
-            ->with('under_line_style_check_out',$this->under_line_style['check_out']);
+            ->with(array_merge(
+                [
+                    'main_title_guest' => $this->main_titles['guest'],
+                    'main_title_reception' => $this->main_titles['reception'],
+                    'main_title_user' => $this->main_titles['user'],
+                    'main_title_room' => $this->main_titles['room'],
+                    'sub_title_create' => $this->sub_titles['create'],
+                    'sub_title_check_in' => $this->sub_titles['check_in'],
+                    'sub_title_check_out' => $this->sub_titles['check_out'],
+                    'under_line_style_create' => $this->under_line_style['create'],
+                    'under_line_style_check_in' => $this->under_line_style['check_in'],
+                    'under_line_style_check_out' => $this->under_line_style['check_out']
+                ]
+            ));
     }
 
     //menu icon (in mobile view,without js option)

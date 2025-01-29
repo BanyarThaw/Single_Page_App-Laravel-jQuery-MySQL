@@ -37,23 +37,23 @@ class RoomTypeController extends Controller
     public function return_path($path,$value) {
         $room_types = $value;
         return view($path,compact('room_types'))
-            ->with('main_title_guest',$this->main_titles['guest'])
-            ->with('main_title_reception',$this->main_titles['reception'])
-            ->with('main_title_user',$this->main_titles['user'])
-            ->with('main_title_room',$this->main_titles['room'])
-            ->with('sub_title_rooms',$this->sub_titles['rooms'])
-            ->with('sub_title_index',$this->sub_titles['index'])
-            ->with('sub_title_create',$this->sub_titles['create'])
-            ->with('under_line_style_rooms',$this->under_line_style['rooms'])
-            ->with('under_line_style_index',$this->under_line_style['index'])
-            ->with('under_line_style_create',$this->under_line_style['create']);
+            ->with(array_merge(
+                compact('room_types'),
+                [
+                    'main_title_guest' => $this->main_titles['guest'],
+                    'main_title_reception' => $this->main_titles['reception'],
+                    'main_title_user' => $this->main_titles['user'],
+                    'main_title_room' => $this->main_titles['room'],
+                    'sub_title_rooms' => $this->sub_titles['rooms'],
+                    'sub_title_index' => $this->sub_titles['index'],
+                    'sub_title_create' => $this->sub_titles['create'],
+                    'under_line_style_rooms' => $this->under_line_style['rooms'],
+                    'under_line_style_index' => $this->under_line_style['index'],
+                    'under_line_style_create' => $this->under_line_style['create'],
+                ]
+            ));
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $this->sub_titles['index'] = "sub_menu_anchor_active";
@@ -63,11 +63,6 @@ class RoomTypeController extends Controller
         return $this->return_path("RoomType.index",$room_types);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $this->sub_titles['create'] = "sub_menu_anchor_active";
@@ -77,12 +72,6 @@ class RoomTypeController extends Controller
         return $this->return_path("RoomType.create",$room_types);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validatedData = request()->validate([
@@ -97,23 +86,13 @@ class RoomTypeController extends Controller
         return redirect('roomtypes')->with("info","New Rom type created!!!");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\RoomType  $roomType
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(RoomType $roomType)
     {
         return redirect('roomtypes');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\RoomType  $roomType
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $this->sub_titles['index'] = "sub_menu_anchor_active";
@@ -124,13 +103,6 @@ class RoomTypeController extends Controller
         return $this->return_path("RoomType.edit",$room_type);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\RoomType  $roomType
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request,$id)
     {
         $validatedData = request()->validate([
@@ -145,12 +117,6 @@ class RoomTypeController extends Controller
         return redirect('roomtypes')->with("info","Room type updated!!!");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\RoomType  $roomType
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(RoomType $roomtype)
     {
         $roomtype->delete();
