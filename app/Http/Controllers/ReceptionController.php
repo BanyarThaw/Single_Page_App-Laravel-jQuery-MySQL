@@ -6,7 +6,7 @@ use App\Models\Room;
 use App\Models\User;
 use App\Models\Guest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\MessageBag;
 

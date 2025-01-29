@@ -36,7 +36,7 @@
         <div class="sub_menus" id="body">
             <a href="/users/create" class="sub_menu_anchor">Create User</a>
         </div>
-        yield('user-list')
+        <!-- yield('user-list') -->
     </div>
     <div class="detail_info col-md-9 col-sm-12 col-xs-12">
         {{ $content }}
