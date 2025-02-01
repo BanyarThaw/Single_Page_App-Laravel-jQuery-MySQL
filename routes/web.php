@@ -23,7 +23,6 @@ use App\Http\Controllers\RoomTypeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 //Ordinary Routes
 //-------------------
 Route::get('/',function() {
@@ -31,7 +30,9 @@ Route::get('/',function() {
 });
 
 Route::get('/login',function() {
-    Auth::logout();
+    if(Auth::check()){
+        Auth::logout();
+    }
     return view('Users.login');
 })->name('login');
 
