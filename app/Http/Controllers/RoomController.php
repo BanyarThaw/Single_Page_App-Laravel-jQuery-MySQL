@@ -10,53 +10,6 @@ use Illuminate\Support\MessageBag;
 
 class RoomController extends Controller
 {
-    //main titles (default option without js) (active effect)
-    private $main_titles = [
-        "guest" => "null",
-        "reception" => "null",
-        "user" => "null",
-        "room" => "alive"
-    ];
-
-    //sub titles (default option without js) (active effect)
-    private $sub_titles = [
-        "index" => "sub_menu_anchor",
-        "create" => "sub_menu_anchor",
-        "roomtype" => "sub_menu_anchor",
-        "roomtype_create" => "sub_menu_anchor"
-    ];
-    private $under_line_styles = [
-        "index" => "no_style",
-        "create" => "no_style",
-        "roomtype" => "no_style",
-        "roomtype_create" => "no_style"
-    ];
-
-    /**
-     * Return views or redirect for each routes.
-     *
-     * @return /views
-     */
-    public function return_path($path,$value,$room_types) {
-        $rooms = $value;
-        return view($path,compact('rooms','room_types'))
-            ->with(array_merge(
-                [
-                    'main_title_guest' => $this->main_titles['guest'],
-                    'main_title_reception' => $this->main_titles['reception'],
-                    'main_title_user' => $this->main_titles['user'],
-                    'main_title_room' => $this->main_titles['room'],
-                    'sub_title_index' => $this->sub_titles['index'],
-                    'sub_title_create' => $this->sub_titles['create'],
-                    'sub_title_roomtype' => $this->sub_titles['roomtype'],
-                    'sub_title_roomtype_create' => $this->sub_titles['roomtype_create'],
-                    'under_line_style_index' => $this->under_line_styles['index'],
-                    'under_line_style_create' => $this->under_line_styles['create'],
-                    'under_line_style_roomtype' => $this->under_line_styles['roomtype'],
-                    'under_line_style_roomtype_create' => $this->under_line_styles['roomtype_create'],
-                ]
-            ));
-    }
 
     //menu icon (in mobile view,without js option)
     public function rooms_menu_icon()
@@ -64,7 +17,7 @@ class RoomController extends Controller
         $rooms = null;
         $room_types = null;
 
-        return $this->return_path("Rooms.menu_icon",$rooms,$room_types);
+        return view("Rooms.menu_icon",compact('room_types','rooms'));
     }
 
 
@@ -73,9 +26,9 @@ class RoomController extends Controller
         $this->sub_titles['index'] = "sub_menu_anchor_active";
         $this->under_line_style['index'] = "sub_menus_active";
 
-        $rooms = Room::orderBy('id','desc')->get();
+        $rooms = Room::orderBy('id','desc')->latest()->get();
         $room_types = null;
-        return $this->return_path("Rooms.index",$rooms,$room_types);
+        return view("Rooms.index",compact('room_types','rooms'));
     }
 
 
@@ -86,13 +39,13 @@ class RoomController extends Controller
 
         $room_types = RoomType::orderBy('id','desc')->get();
         $rooms = null;
-        return $this->return_path("Rooms.create",$rooms,$room_types);
+        return view("Rooms.create",compact('room_types','rooms'));
     }
 
 
     public function store(Request $request)
     {
-        $validatedData = request()->validate([
+         request()->validate([
             'room_name'=>'required',
             'room_number'=>'required|integer',
             'room_type'=>'required',
@@ -109,27 +62,23 @@ class RoomController extends Controller
 
     public function show($id)
     {
-        $this->sub_titles['index'] = "sub_menu_anchor_active";
-        $this->under_line_style['index'] = "sub_menus_active";
         $room = Room::find($id);
         $room_types = null;
-        return $this->return_path("Rooms.show",$room,$room_types);
+        return view("Rooms.show",compact('room_types','room'));
     }
 
 
     public function edit($id)
     {
-        $this->sub_titles['index'] = "sub_menu_anchor_active";
-        $this->under_line_style['index'] = "sub_menus_active";
         $room = Room::find($id);
         $room_types = RoomType::all();
-        return $this->return_path("Rooms.edit",$room,$room_types);
+        return view("Rooms.edit",compact('room','room_types'));
     }
 
 
     public function update($id)
     {
-        $validatedData = request()->validate([
+        request()->validate([
             'room_name' => 'required',
             'room_number' => 'required',
             'room_type' => 'required',

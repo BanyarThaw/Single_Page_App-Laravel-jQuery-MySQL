@@ -11,66 +11,22 @@ use Illuminate\Support\MessageBag;
 
 class UserController extends Controller
 {
-    //main titles (default option without js) (active effect)
-    private $main_titles = [
-        "guest" => "null",
-        "reception" => "null",
-        "user" => "alive",
-        "room" => "null"
-    ];
-
-    //sub titles (default option without js) (active effect)
-    private $sub_titles = [
-        "index" => "sub_menu_anchor",
-        "create" => "sub_menu_anchor"
-    ];
-    private $under_line_style = [
-        "index" => "no_style",
-        "create" => "no_style"
-    ];
-
-    /**
-     * Return views or redirect for each routes.
-     *
-     * @return /views
-     */
-    public function return_path($path,$value,$value_2) {
-        $users = $value;
-        $users_2 = $value_2;
-        return view($path,compact('users','users_2'))
-           ->with(array_merge(
-               [
-                   'main_title_guest' => $this->main_titles['guest'],
-                   'main_title_reception' => $this->main_titles['reception'],
-                   'main_title_user' => $this->main_titles['user'],
-                   'main_title_room' => $this->main_titles['room'],
-                   'sub_title_index' => $this->sub_titles['index'],
-                   'sub_title_create' => $this->sub_titles['create'],
-                   'under_line_style_index' => $this->under_line_style['index'],
-                   'under_line_style_create' => $this->under_line_style['create'],
-               ]
-           ));
-    }
-
     //menu icon (in mobile view,without js option)
     public function users_menu_icon()
     {
         $users = null;
         $users_2 = null;
 
-        return $this->return_path("Users.menu_icon",$users,$users_2);
+        return view('Users.menu_icon',compact('users','users_2'));
     }
 
 	//users list
     public function index()
     {
-        $this->sub_titles['index'] = "sub_menu_anchor_active";
-        $this->under_line_style['index'] = "sub_menus_active";
-
         $users = User::orderBy('created_at','desc')->get();
         $users_2 = null;
 
-        return $this->return_path("Users.index",$users,$users_2);
+        return view('Users.index',compact('users','users_2'));
     }
 
 	//login form
@@ -89,7 +45,7 @@ class UserController extends Controller
             'password' => $input['password']
         ])) {
             $user = Auth::user();
-            return redirect('reception');
+            return redirect('reception',compact('user'));
         } else {
             return redirect('users/login')->with("info","Login Failed.Try Again!!!");
         }
@@ -98,30 +54,16 @@ class UserController extends Controller
 	//user detail
     public function show($id)
     {
-        $this->sub_titles['index'] = "sub_menu_anchor_active";
-        $this->under_line_style['index'] = "sub_menus_active";
-
         $user = User::find($id);
         $user_2 = null;
-
-        return $this->return_path("Users.show",$user,$user_2);
+        return view("users.show",compact('user', 'user_2'));
     }
 
-	//create form (to create user)
-    public function create_form()
-    {
-        $this->sub_titles['create'] = "sub_menu_anchor_active";
-        $this->under_line_style['create'] = "sub_menus_active";
-
-        $user = null;
-        $user_2 = null;
-        return $this->return_path("Users.create_form",$user,$user_2);
-    }
 
 	//create user
     public function create()
     {
-        $validatedData = request()->validate([
+        request()->validate([
             "name" => "required",
             "email" => "required|email|unique:users",
             "password" => "required|min:6",
@@ -140,18 +82,15 @@ class UserController extends Controller
 
 	//edit user
     public function edit($id) {
-        $this->sub_titles['index'] = "sub_menu_anchor_active";
-        $this->under_line_style['index'] = "sub_menus_active";
-
         $user = User::find($id);
         $user_2 = null;
 
-        return $this->return_path("Users.edit_form",$user,$user_2);
+        return view("Users.edit_form",compact("user","user_2"));
     }
 
 	//update user
     public function update($id) {
-        $validatedData = request()->validate([
+         request()->validate([
             "name" => "required",
             "email" => "required|email",
         ]);
@@ -176,7 +115,7 @@ class UserController extends Controller
 
 	//delete user
     public function delete($user_id) {
-        if(Auth::user()->id == $user_id) {
+        if(Auth::id() == $user_id) {
             return redirect('user')->with("info","You are not allowed to delete yourself!!!");
         }
 
@@ -187,12 +126,8 @@ class UserController extends Controller
 
 	//search user
     public function search() {
-        $this->sub_titles['index'] = "sub_menu_anchor_active";
-        $this->under_line_style['index'] = "sub_menus_active";
-
         $search = request()->search;
         $users = User::where('name','LIKE','%'.$search.'%')->get();
-
-        return $this->return_path("Users.index",$users,null);
+        return view("Users.index",compact("users"));
     }
 }

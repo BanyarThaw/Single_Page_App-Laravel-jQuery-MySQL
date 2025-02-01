@@ -10,9 +10,11 @@ class Guest extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'nrc', 'email', 'phone', 'adult', 'child', 'address', 'room', 'status'];
+
     protected $table = 'guests';
 
-    public function rooms() 
+    public function rooms()
     {
         return $this->belongsTo(Room::class,'room');
     }

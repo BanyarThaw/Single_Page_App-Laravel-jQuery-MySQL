@@ -12,50 +12,6 @@ use Illuminate\Support\MessageBag;
 
 class ReceptionController extends Controller
 {
-    //main titles (default option without js) (active effect)
-    private $main_titles = [
-        "guest" => "null",
-        "reception" => "alive",
-        "user" => "null",
-        "room" => "null"
-    ];
-
-    //sub titles (default option without js) (active effect)
-    private $sub_titles = [
-        "create" => "sub_menu_anchor",
-        "check_in" => "sub_menu_anchor",
-        "check_out" => "sub_menu_anchor"
-    ];
-    private $under_line_style = [
-        "create" => "no_style",
-        "check_in" => "no_style",
-        "check_out" => "no_style"
-    ];
-
-    /**
-     * Return views or redirect for each routes.
-     *
-     * @return /views
-     */
-    public function return_path($path,$value,$value2) {
-        $rooms = $value;
-        $guests = $value2;
-        return view($path,compact('rooms','guests'))
-            ->with(array_merge(
-                [
-                    'main_title_guest' => $this->main_titles['guest'],
-                    'main_title_reception' => $this->main_titles['reception'],
-                    'main_title_user' => $this->main_titles['user'],
-                    'main_title_room' => $this->main_titles['room'],
-                    'sub_title_create' => $this->sub_titles['create'],
-                    'sub_title_check_in' => $this->sub_titles['check_in'],
-                    'sub_title_check_out' => $this->sub_titles['check_out'],
-                    'under_line_style_create' => $this->under_line_style['create'],
-                    'under_line_style_check_in' => $this->under_line_style['check_in'],
-                    'under_line_style_check_out' => $this->under_line_style['check_out']
-                ]
-            ));
-    }
 
     //menu icon (in mobile view,without js option)
     public function reception_menu_icon()
@@ -63,19 +19,16 @@ class ReceptionController extends Controller
         $rooms = null;
         $guests = null;
 
-        return $this->return_path("Reception.menu_icon",$rooms,$guests);
+        return view("Reception.menu_icon",compact('rooms','guests'));
     }
 
 	//create guest
     public function create()
     {
-        $this->sub_titles['create'] = "sub_menu_anchor_active";
-        $this->under_line_style['create'] = "sub_menus_active";
-
-        $rooms = Room::all();
+        $rooms = Room::latest('id','desc')->get();
         $guests = null;
 
-        return $this->return_path("Reception.create",$rooms,$guests);
+        return view("Reception.create",compact('rooms','guests'));
     }
 
 	//store guest
@@ -92,18 +45,13 @@ class ReceptionController extends Controller
             'room' => 'required',
         ]);
 
-        $guest = new Guest();
 
-        $guest->name = request()->guest_name;
-        $guest->nrc = request()->nrc;
-        $guest->email = request()->email;
-        $guest->phone = request()->phone;
-        $guest->adult = request()->adult;
-        $guest->child = request()->child;
-        $guest->address = request()->address;
-        $guest->room = request()->room;
-        $guest->status = 1;
-        $guest->save();
+        $validatedData['name'] = $validatedData['guest_name'];
+        unset($validatedData['guest_name']);
+
+        $validatedData['status'] = 1;
+
+        Guest::create($validatedData);
 
         return redirect('reception/check_in')->with("info","New guest created!!!");
     }
@@ -118,7 +66,7 @@ class ReceptionController extends Controller
 
         $rooms = null;
 
-        return $this->return_path("Reception.check_in",$rooms,$guests);
+        return view("Reception.check_in",compact('rooms','guests'));
     }
 
 	//reception/check in/search
@@ -132,7 +80,7 @@ class ReceptionController extends Controller
         $guests = Guest::where('name','LIKE','%'.$search.'%')->where('status','1')->orderBy('created_at','desc')->paginate(10);
         $rooms = null;
 
-        return $this->return_path("Reception.check_in",$rooms,$guests);
+        return view("Reception.check_in",compact('rooms','guests'));
     }
 
 	//reception/check out
@@ -144,7 +92,7 @@ class ReceptionController extends Controller
         $guests = Guest::where('status','0')->orderBy('created_at','desc')->paginate(10);
         $rooms = null;
 
-        return $this->return_path("Reception.check_out",$rooms,$guests);
+        return view("Reception.check_out",compact('rooms','guests'));
     }
 
 	//reception/check out/search
@@ -158,7 +106,7 @@ class ReceptionController extends Controller
         $guests = Guest::where('name','LIKE','%'.$search.'%')->where('status','0')->orderBy('created_at','desc')->paginate(10);
         $rooms = null;
 
-        return $this->return_path("Reception.check_out",$rooms,$guests);
+        return view("Reception.check_out",compact('rooms','guests'));
     }
 
 	//make check out
