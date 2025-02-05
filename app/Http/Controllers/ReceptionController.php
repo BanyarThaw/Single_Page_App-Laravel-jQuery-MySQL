@@ -13,15 +13,6 @@ use Illuminate\Support\MessageBag;
 class ReceptionController extends Controller
 {
 
-    //menu icon (in mobile view,without js option)
-    public function reception_menu_icon()
-    {
-        $rooms = null;
-        $guests = null;
-
-        return view("Reception.menu_icon",compact('rooms','guests'));
-    }
-
 	//create guest
     public function create()
     {

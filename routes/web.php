@@ -46,7 +46,6 @@ Route::middleware('auth')->group(function (){
         //guests
         Route::get('/',[GuestController::class,'index'])->name('guests.index');
         Route::get('/list',[GuestController::class,'index'])->name('guests.list');
-        Route::get('/list/menu_icon',[GuestController::class,'guests_menu_icon'])->name('guests.menu_icon');
     });
 
     Route::prefix('reception')->group(function (){
@@ -55,21 +54,20 @@ Route::middleware('auth')->group(function (){
         Route::get('/create',[ReceptionController::class,'create'])->name('reception.create');
         Route::get('/check_in',[ReceptionController::class,'check_in'])->name('reception.check_in');
         Route::get('/check_out',[ReceptionController::class,'check_out'])->name('reception.check_out');
-        Route::get('/menu_icon',[ReceptionController::class,'reception_menu_icon'])->name('reception.menu_icon');
     });
     Route::prefix('users')->group(function (){
         //users
         Route::get('/',[UserController::class,'index'])->name('users.index');
         Route::get('/list',[UserController::class,'index'])->name('users.list');
         Route::get('/logout',[UserController::class,'logout'])->name('users.logout');
-        Route::get('/menu_icon',[UserController::class,'users_menu_icon'])->name('users.menu_icon');
+        Route::get('/create',[UserController::class,'create']);
     });
 
     Route::prefix('rooms')->group(function (){
         //rooms
         Route::get('/',[RoomController::class,'index']);
         Route::get('/list',[RoomController::class,'index']);
-        Route::get('/menu_icon',[RoomController::class,'rooms_menu_icon'])->name('rooms.menu_icon');
+        Route::get('/create',[RoomController::class,'create']);
 
     });
 

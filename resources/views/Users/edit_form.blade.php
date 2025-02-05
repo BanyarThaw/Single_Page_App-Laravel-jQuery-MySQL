@@ -19,7 +19,7 @@
     </div>
     <br>
 	<!-- both desktop view and mobile view -->
-    <form action="/users/edit/{{$users->id}}" method="post">
+    <form action="{{ route('users.update',$users->id) }}" method="post">
         {{ csrf_field() }}
         <div class="col-md-12 col-sm-12" id="user_user_input_data_form">
             <div class="user_input_data">

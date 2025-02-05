@@ -11,16 +11,6 @@ use Illuminate\Support\MessageBag;
 class RoomController extends Controller
 {
 
-    //menu icon (in mobile view,without js option)
-    public function rooms_menu_icon()
-    {
-        $rooms = null;
-        $room_types = null;
-
-        return view("Rooms.menu_icon",compact('room_types','rooms'));
-    }
-
-
     public function index()
     {
         $rooms = Room::orderBy('id','desc')->latest()->get();

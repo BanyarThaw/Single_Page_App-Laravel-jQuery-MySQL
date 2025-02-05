@@ -35,6 +35,7 @@ class ajaxRoomController extends Controller
 
 	//create room
     public function ajax_rooms_create(Request $request) {
+
         if($request->ajax())
         {
             $room_types = RoomType::all();

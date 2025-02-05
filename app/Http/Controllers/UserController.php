@@ -11,14 +11,6 @@ use Illuminate\Support\MessageBag;
 
 class UserController extends Controller
 {
-    //menu icon (in mobile view,without js option)
-    public function users_menu_icon()
-    {
-        $users = null;
-        $users_2 = null;
-
-        return view('Users.menu_icon',compact('users','users_2'));
-    }
 
 	//users list
     public function index()
@@ -63,21 +55,22 @@ class UserController extends Controller
 	//create user
     public function create()
     {
-        request()->validate([
-            "name" => "required",
-            "email" => "required|email|unique:users",
-            "password" => "required|min:6",
-            "password_again" => "same:password",
-        ]);
+        return view('Users.create_form');
+//        request()->validate([
+//            "name" => "required",
+//            "email" => "required|email|unique:users",
+//            "password" => "required|min:6",
+//            "password_again" => "same:password",
+//        ]);
+//
+//        $user = new User();
+//
+//        $user->name = request()->name;
+//        $user->email = request()->email;
+//        $user->password = Hash::make(request()->password);
+//        $user->save();
 
-        $user = new User();
-
-        $user->name = request()->name;
-        $user->email = request()->email;
-        $user->password = Hash::make(request()->password);
-        $user->save();
-
-        return redirect('users')->with("info","New user created!!!");
+//        return redirect('users')->with("info","New user created!!!");
     }
 
 	//edit user

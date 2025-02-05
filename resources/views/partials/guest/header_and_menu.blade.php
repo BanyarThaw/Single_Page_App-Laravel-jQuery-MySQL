@@ -9,9 +9,7 @@
 </h3>
 <!-- menu icon for menu pop up box (for mobile view) -->
 <div class="menu_icon">
-    <a href="{{ route('guests.menu_icon') }}">
-        <img src="{{asset('icon/card-list.png')}}" alt="Bootstrap" width="32" height="32"></img>
-    </a>
+    <img src="{{asset('icon/card-list.png')}}" alt="Bootstrap" width="32" height="32"></img>
 </div>
 <!-- menu pop up box (for mobile view) -->
 <div class="wrap_sub_menu_mobile">

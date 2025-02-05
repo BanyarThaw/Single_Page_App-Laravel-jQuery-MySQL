@@ -55,7 +55,7 @@
 	width: 100%; /* Full width */
 	height: 100%; /* Full height */
 	overflow: auto;  /* Enable scroll if needed */
-	display: none; 
+	display: none;
 }
 
 /* Modal Content */
@@ -265,9 +265,13 @@ html body {
     color: black;
     border-bottom: 2px solid black;
 }
+.sub_menu_anchor.sub_menu_anchor_active {
+    font-size: 1.2em;
+    color: black !important;
+}
 .sub_menu_anchor_active {
     font-size: 1.2em;
-    color: black;
+    color: black !important;
 }
 .sub_menu_anchor_active:hover,.sub_menu_anchor:hover {
 	font-size:1.3em;
@@ -510,7 +514,7 @@ input[type=text],input[type=number] {
 }
 .sub_menus_mobile > a:hover {
 	color: black;
-}	
+}
 .menus_mobile {
 	float: left;
 	margin-left: 5px;
@@ -549,7 +553,7 @@ input[type=text],input[type=number] {
 	color: black;
 }
 .detail_anchor:hover {
-	color: black;	
+	color: black;
 }
 
 /* reception */
@@ -884,10 +888,10 @@ input[type=text],input[type=number] {
 	#user_user_input_data_form {
 		padding-left: 10px;
 	}
-	#pass_again {  
+	#pass_again {
 		display: none;
 	}
-	#pass_again_mobile { 
+	#pass_again_mobile {
 		display: block;
 	}
 	.user_user_submit_button {
@@ -1231,7 +1235,7 @@ input[type=text],input[type=number] {
 	}
 	#user_user_input_data_detail_2 {
 		width: 240px;
-	} 
+	}
 	.user_user_submit_button {
 		display: none;
 	}
@@ -1256,7 +1260,7 @@ input[type=text],input[type=number] {
 	}
 	.room_detail_info_header {
 		display: none;
-	}	
+	}
 	.room_detail_info_header_mobile {
 		display: block;
 	}
@@ -1359,7 +1363,7 @@ input[type=text],input[type=number] {
 		display: none;
 	}
 
-	/* common (users,rooms) */ 
+	/* common (users,rooms) */
 	#popup_input {
 		width: 200px;
 	}
