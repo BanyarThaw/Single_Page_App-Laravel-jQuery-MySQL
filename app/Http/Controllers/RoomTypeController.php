@@ -45,9 +45,6 @@ class RoomTypeController extends Controller
 
     public function edit($id)
     {
-        $this->sub_titles['index'] = "sub_menu_anchor_active";
-        $this->under_line_style['index'] = "sub_menus_active";
-
         $room_type = RoomType::find($id);
 
         return view("RoomType.edit",compact('room_type'));

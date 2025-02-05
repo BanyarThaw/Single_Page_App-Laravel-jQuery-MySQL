@@ -23,9 +23,6 @@ class RoomController extends Controller
 
     public function index()
     {
-        $this->sub_titles['index'] = "sub_menu_anchor_active";
-        $this->under_line_style['index'] = "sub_menus_active";
-
         $rooms = Room::orderBy('id','desc')->latest()->get();
         $room_types = null;
         return view("Rooms.index",compact('room_types','rooms'));
@@ -34,9 +31,6 @@ class RoomController extends Controller
 
     public function create()
     {
-        $this->sub_titles['create'] = "sub_menu_anchor_active";
-        $this->under_line_style['create'] = "sub_menus_active";
-
         $room_types = RoomType::orderBy('id','desc')->get();
         $rooms = null;
         return view("Rooms.create",compact('room_types','rooms'));

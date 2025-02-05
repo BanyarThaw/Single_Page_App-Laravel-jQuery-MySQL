@@ -59,9 +59,6 @@ class ReceptionController extends Controller
 	//reception/check in
     public function check_in()
     {
-        $this->sub_titles['check_in'] = "sub_menu_anchor_active";
-        $this->under_line_style['check_in'] = "sub_menus_active";
-
         $guests = Guest::where('status','1')->orderBy('created_at','desc')->paginate(10);
 
         $rooms = null;
@@ -72,9 +69,6 @@ class ReceptionController extends Controller
 	//reception/check in/search
     public function check_in_search()
     {
-        $this->sub_titles['check_in'] = "sub_menu_anchor_active";
-        $this->under_line_style['check_in'] = "sub_menus_active";
-
         $search = request()->search;
 
         $guests = Guest::where('name','LIKE','%'.$search.'%')->where('status','1')->orderBy('created_at','desc')->paginate(10);
@@ -86,9 +80,6 @@ class ReceptionController extends Controller
 	//reception/check out
     public function check_out()
     {
-        $this->sub_titles['check_out'] = "sub_menu_anchor_active";
-        $this->under_line_style['check_out'] = "sub_menus_active";
-
         $guests = Guest::where('status','0')->orderBy('created_at','desc')->paginate(10);
         $rooms = null;
 
@@ -98,9 +89,6 @@ class ReceptionController extends Controller
 	//reception/check out/search
     public function check_out_search()
     {
-        $this->sub_titles['check_out'] = "sub_menu_anchor_active";
-        $this->under_line_style['check_out'] = "sub_menus_active";
-
         $search = request()->search;
 
         $guests = Guest::where('name','LIKE','%'.$search.'%')->where('status','0')->orderBy('created_at','desc')->paginate(10);
