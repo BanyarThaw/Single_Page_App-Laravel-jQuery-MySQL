@@ -13,7 +13,7 @@
     </div>
     <br>
     <!-- desktop and larger screens view -->
-    <form action="/reception" method="post">
+    <form action="{{ route('reception.store') }}" method="post">
         <div class="reception_input_data">
             {{ csrf_field() }}
             <input type="hidden" name="type" value="desktop_&_larger_screens">
@@ -109,9 +109,9 @@
             </div>
         </div>
     </form>
-    
+
     <!-- normal mobile view,mobile landscape view,tablet view -->
-    <form action="/reception" method="post">
+    <form action="{{ route('reception.store') }}" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="type" value="mobile_screens">
         <div class="col-md-12 col-sm-12" id="user_input_data_form">

@@ -6,10 +6,10 @@ $(document).ready(function() {
     $(document).on('click','#roomtypes button[type="submit"]', function (event) {
 		//prevent default action
         event.preventDefault();
-		
+
 		//show loader container
         $("#loader-container").show();
-		
+
 		//show loader
         $("#loader").show();
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
         let processFile = $('form').attr('action');
 
 		//modify that variable(processFile)
-        processFile = "/ajax_"+processFile;
+        // processFile = "/ajax_"+processFile;
 
 		//get room type name from input
         var room_type_name = $('input[name="room_type_name"]').val();
@@ -47,7 +47,7 @@ $(document).ready(function() {
 					//add active effect to roomtypes section
                     $('.sub_menus a[href="/roomtypes"]').parent().addClass('sub_menus_active');
                     $('.sub_menus a[href="/roomtypes"]').removeClass('sub_menu_anchor').addClass('sub_menu_anchor_active');
-					
+
 					//change url from web browser
                     $.ChangeUrl('Web Application','/roomtypes') //custom jquery plugin
 

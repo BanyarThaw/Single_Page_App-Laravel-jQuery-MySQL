@@ -30,7 +30,7 @@
                     @php $words_limit = $words_count::words_limit($guest->name); echo $words_limit; @endphp
                 </a>
                 @if($guest->status == 1)
-                    <a href="/reception/make_check_out/{{ $guest->id }}?page_number={{$guests->currentPage()}}" class="anchor_check_out">Check-out</a>
+                    <a href="{{ route('reception.make_check_out',$guest->id) }}?page_number={{$guests->currentPage()}}" class="anchor_check_out">Check-out</a>
                 @endif
             </div>
         @endforeach
@@ -53,7 +53,7 @@
                 </a>
                 <br>
                 @if($guest->status == 1)
-                    <a href="/reception/make_check_out/{{ $guest->id }}?page_number={{$guests->currentPage()}}" class="anchor_check_out"><img src="{{asset('icon/check-square.png')}}" alt="Bootstrap" width="20" height="20"></img></a>
+                    <a href="{{ route('reception.make_check_out',$guest->id) }}?page_number={{$guests->currentPage()}}" class="anchor_check_out"><img src="{{asset('icon/check-square.png')}}" alt="Bootstrap" width="20" height="20"></img></a>
                 @endif
             </div>
             <br>

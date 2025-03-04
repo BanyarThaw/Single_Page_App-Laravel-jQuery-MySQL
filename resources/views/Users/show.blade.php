@@ -18,8 +18,8 @@
         </div>
 		<!-- edit button -->
         <div class="room_edit">
-            <a href="/users/edit/{{ $users->id }}" class="edit_form detail_anchor" id="myBtn">
-                <button><img src="{{asset('icon/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></img></button>
+            <a href="{{ route('users.edit',$users->id) }}" class="edit_form detail_anchor" id="myBtn">
+                <button><img src="{{asset('icon/pencil-square.png')}}" alt="Bootstrap" width="20" height="20"></button>
             </a>
         </div>
     </div>

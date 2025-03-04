@@ -11,15 +11,14 @@ use Illuminate\Support\MessageBag;
 
 class UserController extends Controller
 {
+
 	//users list
     public function index()
     {
-        if(Auth::check()) {
-            $users = User::orderBy('created_at','desc')->get();
+        $users = User::orderBy('created_at','desc')->get();
+        $users_2 = null;
 
-            return view("Users.index", ["users" => $users]);
-        }
-        return view('Users.login');
+        return view('Users.index',compact('users','users_2'));
     }
 
 	//login form
@@ -29,7 +28,7 @@ class UserController extends Controller
     }
 
 	//log in
-    public function login()
+    public function login(Request $request)
     {
         $input = request()->all();
 
@@ -38,7 +37,7 @@ class UserController extends Controller
             'password' => $input['password']
         ])) {
             $user = Auth::user();
-            return redirect('reception');
+            return redirect('reception',compact('user'));
         } else {
             return redirect('users/login')->with("info","Login Failed.Try Again!!!");
         }
@@ -47,89 +46,69 @@ class UserController extends Controller
 	//user detail
     public function show($id)
     {
-        if(Auth::check()) {
-            $user = User::find($id);
-
-            return view("Users.show",['user' => $user]);
-        }
-        return view('Users.login');
+        $user = User::find($id);
+        $user_2 = null;
+        return view("users.show",compact('user', 'user_2'));
     }
 
-	//create form (to create user)
-    public function create_form()
-    {
-        if(Auth::check()) {
-            return view("Users.create_form");
-        }
-        return view('Users.login');
-    }
 
 	//create user
     public function create()
     {
-        $validatedData = request()->validate([
-            "name" => "required",
-            "email" => "required|email|unique:users",
-            "password" => "required|min:6",
-            "password_again" => "same:password",
-        ]);
+        return view('Users.create_form');
+//        request()->validate([
+//            "name" => "required",
+//            "email" => "required|email|unique:users",
+//            "password" => "required|min:6",
+//            "password_again" => "same:password",
+//        ]);
+//
+//        $user = new User();
+//
+//        $user->name = request()->name;
+//        $user->email = request()->email;
+//        $user->password = Hash::make(request()->password);
+//        $user->save();
 
-        $user = new User();
-
-        $user->name = request()->name;
-        $user->email = request()->email;
-        $user->password = Hash::make(request()->password);
-        $user->save();
-
-        return redirect('users')->with("info","New user created!!!");
+//        return redirect('users')->with("info","New user created!!!");
     }
 
 	//edit user
     public function edit($id) {
-        if(Auth::check()) {
-            $user = User::find($id);
+        $user = User::find($id);
+        $user_2 = null;
 
-            return view("Users.edit_form",['user' => $user]);
-        }
-        return view('Users.login');
+        return view("Users.edit_form",compact("user","user_2"));
     }
 
 	//update user
     public function update($id) {
-        $validatedData = request()->validate([
+         request()->validate([
             "name" => "required",
             "email" => "required|email",
         ]);
 
-        if(request()->password) {
-            $user = User::find($id);
+        $user = User::find($id);
 
-            $user->name = request()->name;
-            $user->email = request()->email;
+        $user->name = request()->name;
+        $user->email = request()->email;
+        if(isset(request()->password)){
             $user->password = Hash::make(request()->password);
-            $user->save();
         }
-        else {
-            $user = User::find($id);
+        $user->update();
 
-            $user->name = request()->name;
-            $user->email = request()->email;
-            $user->save();
-        }
         return redirect('users')->with("info","User updated!!!");
     }
 
 	//log out
     public function logout() {
-        if(Auth::check()) {
-            Auth::logout();
-            return redirect('users/login');
-        }
+        Auth::logout();
+        return redirect('users/login');
     }
 
 	//delete user
     public function delete($user_id) {
-        if(Auth::user()->id == $user_id) {
+        if(Auth::id() == $user_id) {
             return redirect('user')->with("info","You are not allowed to delete yourself!!!");
         }
 
@@ -140,12 +119,8 @@ class UserController extends Controller
 
 	//search user
     public function search() {
-        if(Auth::check()) {
-            $search = request()->search;
-            $users = User::where('name','LIKE','%'.$search.'%')->get();
-            
-            return view("Users.index",['users' => $users]);
-        }
-        return view('Users.login');
+        $search = request()->search;
+        $users = User::where('name','LIKE','%'.$search.'%')->get();
+        return view("Users.index",compact("users"));
     }
 }

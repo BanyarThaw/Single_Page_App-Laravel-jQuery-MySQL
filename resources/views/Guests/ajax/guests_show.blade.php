@@ -6,5 +6,5 @@
 <p class="word_break"> Phone : <b>{{ $guest->phone }}</b> </p>
 <p class="word_break"> Adult : <b>{{ $guest->adult }}</b> </p>
 <p class="word_break"> Child : <b>{{ $guest->child }}</b> </p>
-<p class="word_break"> Address : <b>{{ $guest->address }}</b> </p> 
-<p class="word_break"> Room : <b>{{ $guest->rooms->name }}</b> </p>
+<p class="word_break"> Address : <b>{{ $guest->address }}</b> </p>
+<p class="word_break"> Room : <b>{{ $guest->rooms->room_name }}</b> </p>

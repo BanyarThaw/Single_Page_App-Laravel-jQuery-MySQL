@@ -6,10 +6,10 @@ $(document).ready(function() {
     $(document).on('click','.edit_roomtype',function (event) {
 		//prevent default action
         event.preventDefault();
-		
+
 		//show the loader container
         $("#loader-container").show();
-		
+
 		//show loader
         $("#loader").show();
 
@@ -17,14 +17,14 @@ $(document).ready(function() {
         let processFile = $('form').attr('action');
 
 		//modify that variable(processFile)
-        processFile = "/ajax_"+processFile;
+        // processFile = "/ajax_"+processFile;
 
 		//get csrf token for security reason
         let csrf_token = $("input[name='_token']").val();
 
 		//get room type name from input
         var room_type_name = $('input[name="room_type_name"]').val();
-		
+
 		//make an ajax call
         $.ajax({
             url: processFile,
@@ -66,13 +66,13 @@ $(document).ready(function() {
             $('.modal-content div').html(html_markup);
 
             //add message to message dialog box
-            $('.message_dialog').text("Something went wrong."); 
+            $('.message_dialog').text("Something went wrong.");
         }
         //if response is room type list
         else {
 			//add to detail_info div element
             $('.detail_info').html(response);
-			
+
 			//fade out  the modal
             $("#myModal").fadeOut();
 
@@ -83,13 +83,13 @@ $(document).ready(function() {
 			//add active effect to roomtypes section
             $('.sub_menus a[href="/roomtypes"]').parent().addClass('sub_menus_active');
             $('.sub_menus a[href="/roomtypes"]').removeClass('sub_menu_anchor').addClass('sub_menu_anchor_active');
-            
+
 			//change url from web browser
 			$.ChangeUrl('Web Application','/roomtypes') //custorm jquery plugin
 
             //add message to message dialog box
-            $('.message_dialog').text("Room type edited."); 
-           
+            $('.message_dialog').text("Room type edited.");
+
             //remove html elements of modal-content after 2 seconds
             setTimeout(function() {
                 $(".modal-content div").empty();

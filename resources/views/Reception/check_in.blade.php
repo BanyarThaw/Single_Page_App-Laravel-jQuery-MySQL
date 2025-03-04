@@ -9,7 +9,7 @@
 @endsection
 
 @section('reception-check-in-list')
-    _active
+    sub_menu_anchor_active
 @endsection
 
 @section('sub_content')

@@ -8,6 +8,7 @@
             <h3>Web Application</h3>
         </div>
         <div class="main_login">
+            {{-- class="login_submit_form"--}}
             <form action="/users/login" method="post" class="login_submit_form">
                 {{ csrf_field() }}
                 <label>E-mail</label>
@@ -30,6 +31,7 @@
         <h4>Web Application</h4>
     </div>
     <div class="main_login_small_screens">
+        {{-- class="login_submit_form_small_screens"--}}
         <form action="/users/login" method="post" class="login_submit_form_small_screens">
             {{ csrf_field() }}
             <label>E-mail</label>

@@ -5,12 +5,13 @@
 @endsection
 
 @section('reception-check-out-underline')
-    sub_menus_active
+     sub_menus_active
 @endsection
 
 @section('reception-check-out')
     sub_menu_anchor_active
 @endsection
+
 
 @section('sub_content')
 	@component('partials.reception.guest_list')

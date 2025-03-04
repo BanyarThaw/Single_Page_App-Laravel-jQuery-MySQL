@@ -6,10 +6,10 @@ $(document).ready(function() {
     $(document).on('click','.logout_button',function(event) {
 		//prevent default action
         event.preventDefault();
-		
+
 		//show loader container
         $("#loader-container").show();
-		
+
 		//show loader
         $("#loader").show();
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
         var processFile = $(this).attr('href');
 
 		//modify that variable(processFile)
-        processFile = "/ajax_"+processFile;
+        // processFile = "/ajax_"+processFile;
 
 		//make an ajax call
         $.ajax({

@@ -10,49 +10,35 @@ class ajaxGuestController extends Controller
 {
 	//guests/list
     public function ajax_guests(Request $request) {
-        if(Auth::check()) {
-            if($request->ajax()) 
-            {
-                $guests = Guest::orderBy('created_at','desc')->paginate(10);
+        if($request->ajax())
+        {
+            $guests = Guest::orderBy('created_at','desc')->paginate(10);
 
-                return view('Guests.ajax.guests',compact('guests'))->render();
-            }
-            else {
-                return redirect('reception');
-            }
+            return view('Guests.ajax.guests',compact('guests'))->render();
         }
-        return view('Users.login');
+
+        return redirect('reception');
     }
-	
+
 	//guests/list
     public function ajax_guests_list(Request $request) {
-        if(Auth::check()) {
-            if($request->ajax())
-            {
-                $guests = Guest::orderBy('created_at','desc')->paginate(10);
+        if($request->ajax())
+        {
+            $guests = Guest::orderBy('created_at','desc')->paginate(10);
 
-                return view('Guests.ajax.guests_list',compact('guests'))->render();
-            }
-            else {
-                return redirect('reception');
-            }
+            return view('Guests.ajax.guests_list',compact('guests'))->render();
         }
-        return view('Users.login');
+        return redirect('reception');
     }
 
 	//guest detail
     public function ajax_guests_show($id,Request $request) {
-        if(Auth::check()) {
-            if($request->ajax())
-            {
-                $guest = Guest::find($id);
+        if($request->ajax())
+        {
+            $guest = Guest::where('id',$id)->with('rooms')->first();
 
-                return view('Guests.ajax.guests_show',compact('guest'));
-            }
-            else {
-                return redirect('reception');
-            }        
+            return view('Guests.ajax.guests_show',compact('guest'));
         }
-        return view('Users.login');
+        return redirect('reception');
     }
 }

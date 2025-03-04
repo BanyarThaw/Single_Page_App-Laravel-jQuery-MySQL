@@ -6,10 +6,10 @@ $(document).ready(function() {
     $(document).on('click','.anchor_check_out',function (event) {
 		//prevent default action
         event.preventDefault();
-		
+
 		//show loader container
         $("#loader-container").show();
-		
+
 		//show loader
         $("#loader").show();
 
@@ -18,9 +18,9 @@ $(document).ready(function() {
 
 		//modify that variable(processFile) and add it to another variable(pairs)
         let pairs = processFile.split('?');
-		
+
 		//modify again that variable(pairs) and add it to next variable(File)
-        let File = "/ajax_"+pairs[0];
+        let File = pairs[0];
 
 		//make an ajax call
         $.ajax({
@@ -47,4 +47,4 @@ $(document).ready(function() {
             }
         });
     });
-}); 
+});

@@ -2,14 +2,14 @@
  * This js script is a script that provides single page app effect when user makes check in
  */
 
-$(document).ready(function() {  
+$(document).ready(function() {
     $(document).on('click','#reception button[type="submit"]', function (event) {
 		//prevent default action
         event.preventDefault();
-		
+
 		//show loader container
         $("#loader-container").show();
-		
+
 		//show loader
         $("#loader").show();
 
@@ -20,18 +20,18 @@ $(document).ready(function() {
         let processFile = $('form').attr('action');
 
 		//modify that variable(processFile)
-        processFile = "/ajax_"+processFile;
+        // processFile = "/ajax_"+processFile;
 
-        //since we have two form inputs 
+        //since we have two form inputs
 		//we need to check which form's input elements have
-		//real data 
+		//real data
         function return_value(class_name) {
             var value;
             $(class_name).each(function() {
                 var length = $(this).val().length;
                 if(length > 0) {
                     value = $(this).val();
-                } 
+                }
             });
             return value;
         }
@@ -56,7 +56,7 @@ $(document).ready(function() {
 
 		//get address from input
         var address = return_value(".address");
-		
+
 		//get room info from input
         var room = return_value(".room");
 

@@ -12,85 +12,63 @@ class ajaxRoomTypeController extends Controller
 {
 	//roomtypes
     public function ajax_roomtypes(Request $request) {
-        if(Auth::check()) {
-            if($request->ajax())
-            {
-                $room_types = RoomType::all();
-                return view('RoomType.ajax.roomtypes',compact('room_types'))->render();
-            }
-            else {
-                return redirect('reception');
-            }
+        if($request->ajax())
+        {
+            $room_types = RoomType::all();
+            return view('RoomType.ajax.roomtypes',compact('room_types'))->render();
         }
-        return view('Users.login');
-    }   
+        return redirect('reception');
+    }
 
 	//create roomtype
     public function ajax_roomtypes_create(Request $request) {
-        if(Auth::check()) {
-            if($request->ajax()) {
-                return view('RoomType.ajax.roomtypes_create')->render();
-            }
-            else {
-                return redirect('reception');
-            }
+        if($request->ajax()) {
+            return view('RoomType.ajax.roomtypes_create')->render();
         }
-        return view('Users.login');
+        return redirect('reception');
     }
 
 	//store roomtype
     public function ajax_roomtypes_store(Request $request) {
-        if(Auth::check()) {
-            $validator = Validator::make($request->all(),[
-                'room_type_name' => [new NotNull],
-            ]);
+        $validator = Validator::make($request->all(),[
+            'room_type_name' => [new NotNull],
+        ]);
 
-            if($validator->fails()) {
-                return $this->ajax_roomtypes_create($request);
-            }
-
-            $room_type = new RoomType();
-
-            $room_type->name = request()->room_type_name;
-            $room_type->save();
-
-            return $this->ajax_roomtypes($request);
+        if($validator->fails()) {
+            return $this->ajax_roomtypes_create($request);
         }
-        return view('Users.login');
+
+        $room_type = new RoomType();
+
+        $room_type->name = request()->room_type_name;
+        $room_type->save();
+
+        return $this->ajax_roomtypes($request);
     }
 
 	//edit roomtype
     public function ajax_roomtypes_edit($id,Request $request) {
-        if(Auth::check()) {
-            if($request->ajax()) {
-                $room_type = RoomType::find($id);
-                return view('RoomType.ajax.roomtypes_edit',compact('room_type'))->render();
-            }
-            else {
-                return redirect('reception');
-            }
+        if($request->ajax()) {
+            $room_type = RoomType::find($id);
+            return view('RoomType.ajax.roomtypes_edit',compact('room_type'))->render();
         }
-        return view('Users.login');
+        return redirect('reception');
     }
 
 	//update roomtype
     public function ajax_roomtypes_update(Request $request,$id) {
-        if(Auth::check()) {
-            $validator = Validator::make($request->all(),[
-                'room_type_name' => [new NotNull],
-            ]);
+        $validator = Validator::make($request->all(),[
+            'room_type_name' => [new NotNull],
+        ]);
 
-            if ($validator->fails()) {
-                return $this->ajax_roomtypes_edit($id,$request);
-            }
-            else {
-                $room_type = RoomType::find($id);
-
-                $room_type->name = request()->room_type_name;
-                $room_type->save();
-
-                return $this->ajax_roomtypes($request);
-            }
+        if ($validator->fails()) {
+            return $this->ajax_roomtypes_edit($id,$request);
         }
+
+        $room_type = RoomType::find($id);
+        $room_type->name = request()->room_type_name;
+        $room_type->save();
+
+        return $this->ajax_roomtypes($request);
     }
 }

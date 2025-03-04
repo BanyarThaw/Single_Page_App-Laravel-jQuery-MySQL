@@ -1,7 +1,7 @@
 /**
  * This js script is a script providing single page app effect for user experience. (for sub menus)
  */
- 
+
 $(document).ready(function() {
     $(document).on('click','#body a', function(event) {
         //prevent default action
@@ -48,10 +48,10 @@ $(document).ready(function() {
                 $("#loader").fadeOut(1000);
                 $("#loader-container").fadeOut(1000);
 
-                /** 
+                /**
                  * for mobile view (menu icon is already hiddend in desktop and larger screen views)
-                 * to remove category list box below menu icon after selecting category  
-                 */ 
+                 * to remove category list box below menu icon after selecting category
+                 */
                 $(".wrap_sub_menu_mobile").hide();
             }
         })

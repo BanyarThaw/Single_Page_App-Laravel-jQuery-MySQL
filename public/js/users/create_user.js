@@ -6,21 +6,21 @@ $(document).ready(function() {
     $(document).on('click','#users button[type="submit"]', function (event) {
 		//prevent default action
         event.preventDefault();
-		
+
 		//show loader container
         $("#loader-container").show();
-		
+
 		//show loader
         $("#loader").show();
 
 		//get csrf token for security reason
         let csrf_token = $("input[name='_token']").val();
-		
+
 		//get url form form's action and add it to a variable(processFile)
         let processFile = $('form').attr('action');
 
 		//modify that variable(processFile)
-        processFile = "/ajax_"+processFile;
+        // processFile = "/ajax_"+processFile;
 
 		//get name from input
         var name = $('input[name="name"]').val();
@@ -56,16 +56,16 @@ $(document).ready(function() {
 					//add active effect to users/list section
                     $('.sub_menus a[href="/users/list"]').parent().addClass('sub_menus_active');
                     $('.sub_menus a[href="/users/list"]').removeClass('sub_menu_anchor').addClass('sub_menu_anchor_active');
-                    
+
 					//change url from web browser
 					$.ChangeUrl('Web Application','/users/list'); //custom jquery plugin
-                    
+
 					//add message to message dialog box
-                    $('.message_dialog').text("New user created."); 
+                    $('.message_dialog').text("New user created.");
                 }
                 else {
                     //add message to message dialog box
-                    $('.message_dialog').text("Something went wrong."); 
+                    $('.message_dialog').text("Something went wrong.");
                 }
             },
             error: function ( error ) {
