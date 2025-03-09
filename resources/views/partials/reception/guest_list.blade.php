@@ -26,7 +26,7 @@
                 {{ $guest->created_at->format('j.n.Y') }}
             </div>
             <div class="col-md-9 col-sm-9 col-xs-8 name">
-                <a href="/guests/{{ $guest->id }}" class="detail_anchor" id="myBtn">
+                <a href="{{ route('guests.show',$guest->id) }}" class="detail_anchor" id="myBtn">
                     @php $words_limit = $words_count::words_limit($guest->name); echo $words_limit; @endphp
                 </a>
                 @if($guest->status == 1)
@@ -48,7 +48,7 @@
         @foreach($guests as $guest)
             <div class="reception_user_list_mobile_detail">
                 <h5 class="date_format_mobile">{{ $guest->created_at->format('d.n.Y') }}</h5>
-                <a href="/guests/{{$guest->id}}" class="detail_anchor" id="myBtn">
+                <a href="{{ route('guests.show',$guest->id) }}" class="detail_anchor" id="myBtn">
                     <p class="name_mobile"> @php $words_limit = $words_count::words_limit($guest->name); echo $words_limit; @endphp</p>
                 </a>
                 <br>

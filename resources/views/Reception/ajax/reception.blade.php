@@ -1,10 +1,10 @@
 @component('partials.reception.header_and_menu')
 
-    @section('reception-check-in-list-underline')
+    @section('reception-check-in-underline')
         sub_menus_active
     @endsection
 
-    @section('reception-check-in-list')
+    @section('reception-check-in')
         sub_menu_anchor_active
     @endsection
 
